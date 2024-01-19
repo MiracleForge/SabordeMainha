@@ -1,9 +1,20 @@
 import { Metadata } from 'next';
+import FlyNavigation from '@/app/components/flynavigation/FlyNavigation';
 
 export const metadata: Metadata = {
-  title: 'Sabor de Mainha',
+  title: 'Sabor de Mainha | Home',
 };
 
-export default function Home() {
-  return <h1 className='w-auto h-screen overflow-hidden'>Hello Word</h1>;
-}
+const Home: React.FC = () => {
+  return (
+    <main className="w-full h-auto">
+      
+    <FlyNavigation/>
+      
+      
+
+    </main>
+  );
+};
+
+export default Home;
