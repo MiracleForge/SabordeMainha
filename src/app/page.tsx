@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Home',
+  title: 'Sabor de Mainha',
 };
 
 export default function Home() {
-  return <h1>Hello Word</h1>;
+  return <h1 className='w-auto h-screen overflow-hidden'>Hello Word</h1>;
 }

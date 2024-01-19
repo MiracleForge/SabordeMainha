@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import logo from '../../../../public/assets/images/Logo.png';
@@ -17,6 +17,19 @@ const Navigation = () => {
         setIsOpen(!isOpen);
     };
 
+    useEffect(() => {
+        const handleResize = () => {
+          if (window.innerWidth > 768) {
+            setIsOpen(false);
+          }
+        };     
+        window.addEventListener('resize', handleResize);
+      
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
+
     return (
         <nav className={`fixed w-full  shadow bg-primary ${isOpen ? 'open' : ''}`}>
             <div className=" px-4 md:px-6 py-1 mx-auto md:flex md:justify-between md:items-center  border-b-4 border-linebaseColor">
@@ -26,11 +39,11 @@ const Navigation = () => {
                         <Image
                             src={logo}
                             alt="Sabor de Mainha Logo"
-                            className={`w-24 h-auto`}
+                            className={`w-32 h-auto`}
                             />                 
                     </Link>
 
-                    <div className="flex md:hidden">
+                    <div className="flex md:hidden text-secondary">
                         <button
                             onClick={toggleMenu}
                             type="button"
@@ -42,37 +55,37 @@ const Navigation = () => {
                     </div>
                 </div>
 
-                <div className={`absolute  inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center ${isOpen ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full'}`}>
+                <div className={`absolute  inset-x-0 z-20 w-full px-6 justify-end transition-all bg-primary duration-300 ease-in-out md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center border-y-2 md:border-0 border-secondary ${isOpen ? 'translate-x-0 opacity-100 min-h-60' : 'opacity-0 -translate-x-full'}`}>
                     <div className="flex flex-col md:flex-row md:mx-6">
-                        <ul className=" flex flex-col md:flex-row md:gap-6 lg:gap-12 items-center h-24  font-lily-script text-fontColor1 text-2xl md:text-lg xl:text-3xl ">
-                            <li className="translate-y-0 hover:-translate-y-1 duration-300">
-                                <Link href={"/"} className="">
+                        <ul className="h-24 flex flex-col md:flex-row items-end md:items-center md:gap-6 lg:gap-12 font-lily-script text-fontColor1 text-2xl md:text-lg xl:text-3xl ">
+                            <li className={`translate-y-0 hover:-translate-y-1 duration-300 ${isOpen ? 'w-full p-3 border-b-2 border-secondary border-dashed text-end' : 'w-auto p-0 border-b-0 '}`}>
+                                <Link href={"/"}>
                                     Ínicio
                                 </Link>
                             </li>
-                            <div className="flex gap-[0.09rem]">
-                                <span className="h-20 border-e-[1px] border-tertiary border-dashed"></span>
-                                <span className="h-20 border-r-[1px] border-secondary border-dashed"></span>
+                            <div className="md:flex gap-[0.09rem]">
+                                <span className={`h-20 border-tertiary border-dashed ${isOpen ? 'border-e-0' : 'border-e-[1px]'}`}></span>
+                                <span className={`h-20 border-secondary border-dashed ${isOpen ? 'border-r-0' : 'border-r-[1px]'}`}></span>
                             </div>
-                            <li className="translate-y-0 hover:-translate-y-1 duration-300">
+                            <li className={`translate-y-0 hover:-translate-y-1 duration-300 ${isOpen ? 'w-full p-3 border-b-2 border-secondary border-dashed text-end' : 'w-auto p-0 border-b-0 '}`}>
                                 <Link href={"/"}>
                                     Sobre Nós
                                 </Link>
                             </li>
-                            <div className="flex gap-[0.09rem]">
-                                <span className="h-20 border-e-[1px] border-tertiary border-dashed"></span>
-                                <span className="h-20 border-r-[1px] border-secondary border-dashed"></span>
+                            <div className="md:flex gap-[0.09rem]">
+                                <span className={`h-20 border-tertiary border-dashed ${isOpen ? 'border-e-0' : 'border-e-[1px]'}`}></span>
+                                <span className={`h-20 border-secondary border-dashed ${isOpen ? 'border-r-0' : 'border-r-[1px]'}`}></span>
                             </div>
-                            <li className="translate-y-0 hover:-translate-y-1 duration-300">
+                            <li className={`translate-y-0 hover:-translate-y-1 duration-300 ${isOpen ? 'w-full p-3 border-b-2 border-secondary border-dashed text-end' : 'w-auto p-0 border-b-0 '}`}>
                                 <Link href={"/"}>
                                     Encomenda
                                 </Link>
                             </li>
-                            <div className="flex gap-[0.09rem]">
-                                <span className="h-20 border-e-[1px] border-tertiary border-dashed"></span>
-                                <span className="h-20 border-r-[1px] border-secondary border-dashed"></span>
+                            <div className="md:flex gap-[0.09rem]">
+                                <span className={`h-20 border-tertiary border-dashed ${isOpen ? 'border-e-0' : 'border-e-[1px]'}`}></span>
+                                <span className={`h-20 border-secondary border-dashed ${isOpen ? 'border-r-0' : 'border-r-[1px]'}`}></span>
                             </div>
-                            <li className="translate-y-0 hover:-translate-y-1 duration-300">
+                            <li className={`translate-y-0 hover:-translate-y-1 duration-300 ${isOpen ? 'w-full p-3 border-b-2 border-secondary border-dashed text-end' : 'w-auto p-0 border-b-0 '}`}>
                                 <Link href={"/"}>
                                     Contato
                                 </Link>
@@ -80,7 +93,7 @@ const Navigation = () => {
                         </ul>                       
                     </div>
 
-                    <div className="flex justify-center gap-2 text-white">
+                    <div className={` justify-center gap-4 text-white ${isOpen ? `hidden opacity-0`: `flex opacity-100 transition-opacity`}`}>
                         <Link href={'https://www.instagram.com/sabor.demainhaa/'} target="_blank">
                             <FiInstagram className="text-2xl md:text-2xl lg:text-3xl" />
                         </Link>
@@ -90,20 +103,14 @@ const Navigation = () => {
                             <FaWhatsapp className="text-2xl md:text-2xl lg:text-3xl" />
                         </Link>
                     </div>
-
-
                 </div>
-
-                {/* Styles borders */}
             
             </div >
             <div className="w-full sm:w-full h-auto border-b-[.7rem]  md:border-b-[.5rem] lg:border-b-[.8rem] mt-1  border-secondary relative">     
             <Image 
                 src={toldo} 
                 alt="Toldo Nav Figure"
-                width={400}
-                height={400}
-                className="absolute  w-full mt-2 md:-mt-1 lg:-mt-2 -z-10"
+                className="absolute w-full mt-2 md:-mt-1 lg:-mt-2 -z-10"
             />
             </div>
         </nav>
