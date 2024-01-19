@@ -32,10 +32,10 @@ const Navigation = () => {
 
     return (
         <nav className={`fixed w-full  shadow bg-primary ${isOpen ? 'open' : ''}`}>
-            <div className=" px-4 md:px-6 py-1 mx-auto md:flex md:justify-between md:items-center  border-b-4 border-linebaseColor">
+            <div className=" px-4 md:px-6 mx-auto md:flex md:justify-between md:items-center  border-b-4 border-linebaseColor">
                 <div className="flex items-center justify-between ">
                     <Link 
-                        href={"/"}>                   
+                        href={"/"} aria-label="Sabor de Mainha Home">                   
                         <Image
                             src={logo}
                             alt="Sabor de Mainha Logo"
@@ -94,11 +94,11 @@ const Navigation = () => {
                     </div>
 
                     <div className={` justify-center gap-4 text-white ${isOpen ? `hidden opacity-0`: `flex opacity-100 transition-opacity`}`}>
-                        <Link href={'https://www.instagram.com/sabor.demainhaa/'} target="_blank">
+                        <Link href={'https://www.instagram.com/sabor.demainhaa/'} target="_blank" aria-label="Instagram" rel="noopener noreferrer">
                             <FiInstagram className="text-2xl md:text-2xl lg:text-3xl" />
                         </Link>
 
-                        <Link href={'https://www.instagram.com/sabor.demainhaa/'} target="_blank">
+                        <Link href={'https://www.instagram.com/sabor.demainhaa/'} target="_blank" aria-label="Whatsapp" rel="noopener noreferrer">
                             {/* NEED TO CHANGE THIS URL*/ }
                             <FaWhatsapp className="text-2xl md:text-2xl lg:text-3xl" />
                         </Link>
