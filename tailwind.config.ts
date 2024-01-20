@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'cookie': "url('/assets/images/cookieBanner.png')",
+      },
       colors: {
         primary: '#D49495',
         secondary: '#C5585B',

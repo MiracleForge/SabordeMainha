@@ -31,7 +31,7 @@ const Navigation = () => {
       }, []);
 
     return (
-        <nav className={`fixed w-full  shadow bg-primary ${isOpen ? 'open' : ''}`}>
+        <nav className={`fixed w-full  shadow bg-primary z-20 ${isOpen ? 'open' : ''}`}>
             <div className=" px-4 md:px-6 mx-auto md:flex md:justify-between md:items-center  border-b-4 border-linebaseColor">
                 <div className="flex items-center justify-between ">
                     <Link 
