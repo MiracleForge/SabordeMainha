@@ -8,7 +8,7 @@ import { useState } from 'react';
 const Banner = () => {
 
   return (
-    <div className='w-full pt-10 md:pt-12 lg:pt-16' >
+    <div className='w-full pt-10 pt-2 lg:pt-16' >
       <div className='w-full h-5 md:h-7 lg:h-10 bg-contain bg-cookie bg-repeat-x '></div>
       <figure className='pt-2 pb-6 bg-primary border-b-4 border-linebaseColor relative'>
         <span className='absolute h-full w-full bg-gradient-to-b from-white/55 via-white/40 to-white/5'></span>

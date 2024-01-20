@@ -10,6 +10,12 @@ const config: Config = {
     extend: {
       backgroundImage: {
         'cookie': "url('/assets/images/cookieBanner.png')",
+        'cookieMain': "url('/assets/images/cookieBGMain.png')",
+      },
+      backgroundSize: {
+        'cookieMain-small': '8rem',
+        'cookieMain-medium': '12.5rem',
+        'cookieMain-large': '22.75rem',
       },
       colors: {
         primary: '#D49495',
