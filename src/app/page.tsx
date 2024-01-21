@@ -1,22 +1,25 @@
 import { Metadata } from 'next';
 import FlyNavigation from '@/app/components/flynavigation/FlyNavigation';
 import Banner from '@/app/components/banner/Banner';
-import Ribbon from '@/app/components/ribbon/Ribbon';
-
+import HomePage from './components/homepage/HomePage';
 
 export const metadata: Metadata = {
   title: 'Sabor de Mainha | Home',
 };
 
-const Home: React.FC = () => {
-  return (
-    <main className="w-full h-full">     
-      <FlyNavigation/>
-      <Banner/>
 
-      <div className='h-screen bg-cookieMain bg-cookieMain-small md:bg-cookieMain-medium lg:bg-cookieMain-large my-[6rem] bg-repeat-space'>
-          <Ribbon ribbonText="Produtos" altText="Produtos"/>
+const Home: React.FC = () => {
+
+
+  return (
+    <main className=" bg-backColor">     
+      <div className='pt-26 lg:pt-12'>
+        <FlyNavigation/>
       </div>
+      <div className='pt-1 md:pt-2 lg:pt-5'>
+        <Banner/>
+      </div>
+      <div className='bg-quartenary mt-10'><HomePage/></div>
     </main>
   );
 };

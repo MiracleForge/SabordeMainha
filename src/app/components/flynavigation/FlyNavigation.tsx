@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 function FlyNavigation() {
 
   return (
-    <nav className='flex flex-row h-24 w-full font-lily-script text-fontColor2 justify-center items-center text-center gap-10 pt-26 lg:pt-32 text-2xl md:text-3xl lg:text-4xl'>
+    <nav className='flex flex-row h-24 w-full font-lily-script text-fontColor2 justify-center items-center text-center gap-10  text-2xl md:text-3xl lg:text-4xl'>
         <Link href={'/'}className=' translate-y-0 hover:-translate-y-1 duration-300'>
             Home
         </Link>
