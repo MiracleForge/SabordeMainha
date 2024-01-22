@@ -19,7 +19,7 @@ const Home: React.FC = () => {
       <div className='pt-1 md:pt-2 lg:pt-5'>
         <Banner/>
       </div>
-      <div className='bg-quartenary mt-10'><HomePage/></div>
+      <div className=' mt-10'><HomePage/></div>
     </main>
   );
 };

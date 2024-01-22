@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-br">
+    <html lang="pt-br bg-backColor">
       <body className={inter.className} >
         <Header />
         {children}

@@ -68,7 +68,7 @@ const Navigation = () => {
                                 <span className={`h-20 border-secondary border-dashed ${isOpen ? 'border-r-0' : 'border-r-[1px]'}`}></span>
                             </div>
                             <li className={`translate-y-0 hover:-translate-y-1 duration-300 ${isOpen ? 'w-full p-3 border-b-2 border-secondary border-dashed text-end' : 'w-auto p-0 border-b-0 '}`}>
-                                <Link href={"/"}>
+                                <Link href={"/errors/Error404"}>
                                     Sobre Nós
                                 </Link>
                             </li>
@@ -77,7 +77,7 @@ const Navigation = () => {
                                 <span className={`h-20 border-secondary border-dashed ${isOpen ? 'border-r-0' : 'border-r-[1px]'}`}></span>
                             </div>
                             <li className={`translate-y-0 hover:-translate-y-1 duration-300 ${isOpen ? 'w-full p-3 border-b-2 border-secondary border-dashed text-end' : 'w-auto p-0 border-b-0 '}`}>
-                                <Link href={"/"}>
+                                <Link href={"/errors/Error404"}>
                                     Encomenda
                                 </Link>
                             </li>
@@ -86,7 +86,7 @@ const Navigation = () => {
                                 <span className={`h-20 border-secondary border-dashed ${isOpen ? 'border-r-0' : 'border-r-[1px]'}`}></span>
                             </div>
                             <li className={`translate-y-0 hover:-translate-y-1 duration-300 ${isOpen ? 'w-full p-3 border-b-2 border-secondary border-dashed text-end' : 'w-auto p-0 border-b-0 '}`}>
-                                <Link href={"/"}>
+                                <Link href={"/errors/Error404"}>
                                     Contato
                                 </Link>
                             </li>
