@@ -31,8 +31,8 @@ const Navigation = () => {
       }, []);
 
     return (
-        <nav className={` shadow bg-primary z-20 ${isOpen ? 'open' : ''}`}>
-            <div className=" px-4 md:px-6 mx-auto md:flex md:justify-between md:items-center  border-b-4 border-linebaseColor">
+        <nav className={`zshadow bg-primary ${isOpen ? 'open' : ''}`}>
+            <div className=" px-4 md:px-6 mx-auto md:flex md:justify-between md:items-center   ">
                 <div className="flex items-center justify-between ">
                     <Link 
                         href={"/"} aria-label="Sabor de Mainha Home">                   
@@ -55,7 +55,7 @@ const Navigation = () => {
                     </div>
                 </div>
 
-                <div className={`absolute  inset-x-0 z-20 w-full px-6 justify-end transition-all bg-primary duration-300 ease-in-out md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center border-y-2 md:border-0 border-secondary ${isOpen ? 'translate-x-0 opacity-100 min-h-60' : 'opacity-0 -translate-x-full'}`}>
+                <div className={`z-20 absolute inset-x-0 w-full px-6 justify-end transition-all bg-primary duration-300 ease-in-out md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center border-y-2 md:border-0 border-secondary ${isOpen ? 'translate-x-0 opacity-100 min-h-60' : 'opacity-0 -translate-x-full'}`}>
                     <div className="flex flex-col md:flex-row md:mx-6">
                         <ul className="h-24 flex flex-col md:flex-row items-end md:items-center md:gap-6 lg:gap-12 font-lily-script text-fontColor1 text-2xl md:text-lg xl:text-3xl ">
                             <li className={`translate-y-0 hover:-translate-y-1 duration-300 ${isOpen ? 'w-full p-3 border-b-2 border-secondary border-dashed text-end' : 'w-auto p-0 border-b-0 '}`}>
@@ -106,13 +106,13 @@ const Navigation = () => {
                 </div>
             
             </div >
-            <div className="w-full sm:w-full h-auto border-b-[.7rem]  md:border-b-[.5rem] lg:border-b-[.8rem] mt-1  border-secondary relative">     
+            <div className="w-full sm:w-full h-auto border-b-[.4rem]  md:border-b-[.5rem] lg:border-b-[.5rem] border-t-4 border-t-linebaseColor mt-1 py-[0.10rem] border-secondary relative z-10">     
+            </div>
             <Image 
                 src={toldo} 
                 alt="Toldo Nav Figure"
-                className="absolute w-full mt-2 md:-mt-1 lg:-mt-2 -z-10"
+                className="absolute w-full -mt-1 md:-mt-2 lg:-mt-3 xl:-mt-5 z-0"
             />
-            </div>
         </nav>
     );
 };

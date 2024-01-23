@@ -11,9 +11,9 @@ function Footer() {
     <div className=" flex flex-col items-center justify-between p-3  mx-auto space-y-4 sm:space-y-0 sm:flex-row border-t-8 border-secondary">
             <div className='mx-0 flex items-center flex-col lg:flex-row '>
                 <Image src={SonnenLogo} alt='Sonnen Software' className='w-40 md:w-20 lg:w-40'/>
-                <p className='text-sm  sm:ml-4 sm:pl-4 lg:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4'>2024 | Made By - Sonnen Software - </p>
+                <p className='text-sm  sm:ml-4 sm:pl-4 lg:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4'>2024 | Made By Sonnen Software -&nbsp;</p>
                 <Link href="https://www.sonnensoftware.com" aria-label='Sonnen Software' rel="noopener" target='_blank' className='text-sm mt-1'>
-                     @SonnenSoftware
+                    @SonnenSoftware
                 </Link>
             </div>
         <div className='flex flex-row md:gap-6 lg:gap-6 '>

@@ -12,14 +12,14 @@ const Home: React.FC = () => {
 
 
   return (
-    <main className=" bg-backColor">     
-      <div className='pt-26 lg:pt-12'>
+    <main className="bg-quartenary">     
+      <div className='pt-18 lg:pt-12'>
         <FlyNavigation/>
       </div>
-      <div className='pt-1 md:pt-2 lg:pt-5'>
+      <div className=' lg:pt-5'>
         <Banner/>
       </div>
-      <div className=' mt-10'><HomePage/></div>
+      <div className='bg-quartenary mt-0 md:mt-10 flex flex-col justify-center items-center align-middle'><HomePage/></div>
     </main>
   );
 };
