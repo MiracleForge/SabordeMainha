@@ -4,7 +4,7 @@ import Logo from '../../../../public/assets/images/Logo.png';
 
 const Error404 = () => {
     return (
-      <main className='h-auto w-full py-28 bg-backColor flex flex-col items-center justify-center text-center'>
+      <main className='h-auto w-full py-28 bg-backColor flex flex-col items-center justify-center text-center bg-quartenary'>
         <h1 className='text-5xl font-montserrat text-white'>Error 404</h1>
         <h1 className='text-7xl font-montserrat text-white'>Página em Construção</h1>
         <Image

@@ -41,37 +41,79 @@ const HomePage = () => {
         </Link>
           </section>
         
-          <section className='h-screen w-full bg-cookieMain bg-cookieMain-small md:bg-cookieMain-medium lg:bg-cookieMain-large mt-10 md:mt-20 bg-repeat-space'>
+          <section className='h-auto w-full bg-cookieMain bg-cookieMain-small md:bg-cookieMain-medium lg:bg-cookieMain-large mt-10 md:mt-20 mb-10 bg-repeat-space'>
             <Ribbon ribbonText="Mais Populares" altText="Mais Populares"/>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:p-10 p-20 md:gap-10 lg:gap-20 font-lily-script'>
-                <div className='border-x-4 border-dashed bg-white/60 border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl group'>
-                  <div className='w-full border-x-4 border-dashed  border-secondary p-10 text-center'>
-                    <figure className='flex flex-col gap-2'>
-                      <Image src={product01} alt='produtos' className='w-full h-auto  rounded-t-lg'/>
-                      <small className='text-2xl font-bold text-footer/80 mt-6'>Pavê ou pra comer?</small>
-                      <p className='text-lg  text-fontColor2'>Torta de tiozão!</p>
-                      <p className='text-2xl font-semibold text-footer/80'> R$ 45,00</p>
-                    </figure>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  p-10 md:p-10 gap-0 md:gap-10 lg:gap-20 font-lily-script'>
+                <div className=' bg-white rounded-none md:rounded-3xl border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl group'>
+                  <div className='w-full  border-secondary p-10 text-center'>
+                    <Link href={'/errors/Error404'}>
+                      <figure className='flex flex-col gap-2 justify-center items-center text-center'>
+                        <Image src={product01} alt='produtos' className='w-full h-auto  rounded-t-lg'/>
+                        <small className='text-2xl font-bold text-footer/80 mt-6'>Pavê de chocolate</small>
+                        <p className='text-lg  text-fontColor2'>Pavê de chocolate e biscoito - FRIO</p>
+                        <p className='text-2xl font-semibold text-footer/80'> R$ 45,00</p>
+                      </figure>
+                    </Link>
                   </div>
                 </div>
-                <div className='border-x-4 border-dashed bg-white/60 border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl'>
-                  <div className='w-full border-x-4 border-dashed  border-secondary p-10 text-center'>
-                    <figure className='flex flex-col gap-2'>
-                      <Image src={product02} alt='produtos' className='w-full h-auto  rounded-t-lg'/>
-                      <small className='text-2xl font-bold text-footer/80 mt-6'>Torta de gente rica!</small>
-                      <p className='text-lg  text-fontColor2'>Tem um gosto meio roxo!!</p>
-                      <p className='text-2xl font-semibold text-footer/80'> R$ 45,00</p>
-                    </figure>
+                <div className=' bg-white rounded-none md:rounded-3xl border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl'>
+                  <div className='w-full border-secondary p-10 text-center'>
+                    <Link href={'/errors/Error404'}>
+                      <figure className='flex flex-col gap-2 justify-center items-center text-center'>
+                        <Image src={product02} alt='produtos' className='w-full h-auto  rounded-t-lg'/>
+                        <small className='text-2xl font-bold text-footer/80 mt-6'>Torta de Morango</small>
+                        <p className='text-lg  text-fontColor2'>Torta com cobertura de morango</p>
+                        <p className='text-2xl font-semibold text-footer/80'> R$ 55,00</p>
+                      </figure>
+                    </Link>
                   </div>
                 </div>
-                <div className='border-x-4 border-dashed bg-white/60 border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl'>
-                  <div className='w-full border-x-4 border-dashed  border-secondary p-10 text-center'>
-                    <figure className='flex flex-col gap-2'>
-                      <Image src={product03} alt='produtos' className='w-full h-auto  rounded-t-lg'/>
-                      <small className='text-2xl font-bold text-footer/80 mt-6'>Bolo de vegano</small>
-                      <p className='text-lg font-bold  text-fontColor2'>Bolinho de cereja que ninguem gosta!</p>
-                      <p className='text-2xl font-semibold text-footer/80'> R$ 45,00</p>
-                    </figure>
+                <div className=' bg-white rounded-none md:rounded-3xl border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl'>
+                  <div className='w-full   border-secondary p-10 text-center'>
+                    <Link href={'/errors/Error404'}>
+                      <figure className='flex flex-col gap-2 justify-center items-center text-center'>
+                        <Image src={product03} alt='produtos' className='w-full h-auto  rounded-t-lg'/>
+                        <small className='text-2xl font-bold text-footer/80 mt-6'>Bolo de Cerejas </small>
+                        <p className='text-lg font-bold  text-fontColor2'>Bolinho de cerejas com raspas de chocolate branco e musse branco</p>
+                        <p className='text-2xl font-semibold text-footer/80'> R$ 45,00</p>
+                      </figure>
+                    </Link>
+                  </div>
+                </div>
+                <div className=' rounded-none md:rounded-3xl bg-white border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl'>
+                  <div className='w-full border-secondary p-10 text-center'>
+                    <Link href={'/errors/Error404'}>
+                      <figure className='flex flex-col gap-2 justify-center items-center text-center'>
+                        <Image src={product03} alt='produtos' className='w-full h-auto  rounded-t-lg'/>
+                        <small className='text-2xl font-bold text-footer/80 mt-6'>Bolo de vegano</small>
+                        <p className='text-lg font-bold  text-fontColor2'>Bolinho de cereja que ninguem gosta!</p>
+                        <p className='text-2xl font-semibold text-footer/80'> R$ 45,00</p>
+                      </figure>
+                    </Link>
+                  </div>
+                </div>
+                <div className= 'rounded-none md:rounded-3xl bg-white border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl'>
+                  <div className='w-full   border-secondary p-10 text-center'>
+                    <Link href={'/errors/Error404'}>
+                      <figure className='flex flex-col gap-2 justify-center items-center text-center'>
+                        <Image src={product02} alt='produtos' className='w-full h-auto  rounded-t-lg'/>
+                        <small className='text-2xl font-bold text-footer/80 mt-6'>Torta de gente rica!</small>
+                        <p className='text-lg  text-fontColor2'>Tem um gosto meio roxo!!</p>
+                        <p className='text-2xl font-semibold text-footer/80'> R$ 45,00</p>
+                      </figure>
+                    </Link>
+                  </div>
+                </div>
+                <div className=' bg-white rounded-none md:rounded-3xl border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl'>
+                  <div className='w-full border-secondary p-10 text-center'>
+                    <Link href={'/errors/Error404'}>
+                      <figure className='flex flex-col gap-2 justify-center items-center text-center'>
+                        <Image src={product03} alt='produtos' className='w-full h-auto  rounded-t-lg'/>
+                        <small className='text-2xl font-bold text-footer/80 mt-6'>Bolo de vegano</small>
+                        <p className='text-lg font-bold  text-fontColor2'>Bolinho de cereja que ninguem gosta!</p>
+                        <p className='text-2xl font-semibold text-footer/80'> R$ 45,00</p>
+                      </figure>
+                    </Link>
                   </div>
                 </div>
             </div>
