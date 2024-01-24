@@ -12,14 +12,20 @@ const Home: React.FC = () => {
 
 
   return (
-    <main className="bg-quartenary">     
-      <div className='pt-18 lg:pt-12'>
-        <FlyNavigation/>
-      </div>
-      <div className=' lg:pt-5'>
-        <Banner/>
-      </div>
-      <div className='bg-quartenary mt-0 md:mt-10 flex flex-col justify-center items-center align-middle'><HomePage/></div>
+    <main className="bg-quartenary">    
+
+        <div className='pt-18 lg:pt-12'>
+          <FlyNavigation/>
+        </div>
+        
+        <div className=' lg:pt-5'>
+          <Banner/>
+        </div>
+
+        <div className='bg-quartenary mt-0 md:mt-10 flex flex-col justify-center items-center align-middle'>
+          <HomePage/>
+        </div>
+        
     </main>
   );
 };

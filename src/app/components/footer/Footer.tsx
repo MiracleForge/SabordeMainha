@@ -26,8 +26,8 @@ function Footer() {
                 <span className="h-24 border-tertiary border-dashed border-e-[1px]"></span>
                 <span className="h-24 border-secondary border-dashed'border-r-[1px]"></span>
             </div>
-            <div className="flex md:mx-0 lg:mx-4  md:flex-col md:items-center text-center ">
-                <h2 className='hidden md:block  py-2 lg:text-2xl md:text-base  font-lily-script md:w-40'>Redes Sociais</h2>
+            <div className="flex md:me-10 lg:me-20  md:flex-col md:items-center text-center ">
+                <h2 className='hidden md:block  py-2 lg:text-2xl md:text-lg  font-lily-script md:w-40'>Redes Sociais</h2>
                 <div className='flex md:flex-row'>
                     <Link href="https://www.instagram.com/sabor.demainhaa/" target='_blank' rel="noopener noreferrer"
                     className="mx-2 " aria-label="Instagram">
