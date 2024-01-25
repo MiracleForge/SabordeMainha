@@ -2,11 +2,15 @@ import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '../app/components/header/Header';
+import FlyNavigation from '@/app/components/flynavigation/FlyNavigation';
 import Footer from '../../src/app/components/footer/Footer';
 import { AiOutlineArrowDown } from "react-icons/ai";
 import { IoLogoWhatsapp } from "react-icons/io";
+import Logo from '../../public/assets/images/Logo.png';
 
 const inter = Inter({ subsets: ['latin'] })
+
+const logoUrl = Logo.src;
 
 export const metadata: Metadata = {
   title: {
@@ -18,11 +22,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Sabor de Mainha - Encomendas de Doces, Salgados e Bolos',
     description: 'Sabor de Mainha - A sua Fábrica de Sonhos para encomendas de doces, salgados, bolos e festas.',
-    url: 'https://www.sabordemainha.com.br',
+    url: 'https://confeitariatemplate.vercel.app/',
     siteName: 'Sabor de Mainha',
     images: [
       {
-        url: 'metaImg',
+        url: 'https://raw.githubusercontent.com/MiracleForge/SonnenSoftware_Images/main/images/Logo.png',
         width: 3604,
         height: 1108,
         alt: 'Imagem representativa da Sabor de Mainha'
@@ -38,9 +42,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-br bg-backColor">
+    <html lang="pt-br ">
       <body className={inter.className} >
         <Header />
+        <div className='pt-18 lg:pt-12 bg-backColor'>
+          <FlyNavigation/>
+        </div>
         {children}
         <a href="#final" className="fixed z-10 bottom-4 right-4 bg-red-600 text-white p-3 rounded-md hover:bg-red-600 hover:text-black transition duration-600 ease-in-out">
             <AiOutlineArrowDown size={"2rem"} />

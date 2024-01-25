@@ -13,7 +13,7 @@ function FlyNavigation() {
             <span className="h-14 border-secondary border-dashed border-r-[1px]"></span>
         </div>
 
-        <Link href={'errors/Error404'}className='l translate-y-0 hover:-translate-y-1 duration-300'>
+        <Link href={'/catalogodeprodutos'}className='l translate-y-0 hover:-translate-y-1 duration-300'>
             Produtos
         </Link>
     </nav>

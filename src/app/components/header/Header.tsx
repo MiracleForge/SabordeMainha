@@ -77,8 +77,8 @@ const Navigation = () => {
                                 <span className={`h-20 border-secondary border-dashed ${isOpen ? 'border-r-0' : 'border-r-[1px]'}`}></span>
                             </div>
                             <li className={`translate-y-0 hover:-translate-y-1 duration-300 ${isOpen ? 'w-full p-3 border-b-2 border-secondary border-dashed text-end' : 'w-auto p-0 border-b-0 '}`}>
-                                <Link href={"/errors/Error404"}>
-                                    Encomenda
+                                <Link href={"/catalogodeprodutos"}>
+                                    Catálogo
                                 </Link>
                             </li>
                             <div className="md:flex gap-[0.09rem]">

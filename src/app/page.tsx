@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import FlyNavigation from '@/app/components/flynavigation/FlyNavigation';
+
 import Banner from '@/app/components/banner/Banner';
 import HomePage from './components/homepage/HomePage';
 
@@ -12,12 +12,7 @@ const Home: React.FC = () => {
 
 
   return (
-    <main className="bg-quartenary">    
-
-        <div className='pt-18 lg:pt-12'>
-          <FlyNavigation/>
-        </div>
-        
+    <main className="bg-quartenary">         
         <div className=' lg:pt-5'>
           <Banner/>
         </div>
