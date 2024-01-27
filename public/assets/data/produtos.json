@@ -1,82 +1,113 @@
 [
+
     {
         "id": 1,
-        "nome": "Beijinho",
-        "imagem": "./Assets/src/image/main/produtos/beijinho.png",
-        "tipo": "Doces",
-        "valor": 19.99,
-        "cliques": 0
+        "name": "Beijinho",
+        "description": "Doce tradicional feito à base de coco e leite condensado.",
+        "image": "/assets/images/produtos/beijinho_id01.jpg",
+        "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,geralmente feito de coco relado e leite moça",
+        "type": "Doces",
+        "cost": 19.99,
+        "visualization": 1
     },
     {
         "id": 2,
-        "nome": "Boliviano",
-        "imagem": "./Assets/src/image/main/produtos/boliviano.png",
-        "tipo": "Salgados",
-        "valor": 9.99,
-        "cliques": 0
-    },
-    {
-        "id": 2,
-        "nome": "Pastel de Belém",
-        "imagem": "./Assets/src/image/main/produtos/pastel doce.png",
-        "tipo": "Doces",
-        "valor": 39.99,
-        "cliques": 0
+        "name": "Coxinha",
+        "description": "Coxinha com recheio de frango / carne / carne Seca. Temos opção de varinha de trigo ou aipim",
+        "image": "/assets/images/produtos/coxinha_id02.jpg",
+        "image_alt": "A imagem mostra um prato branco contendo um salgado conhecido como coxinha e um cuba no centro contendo um molho branco",
+        "type": "Salgados",
+        "cost": 9.99,
+        "visualization": 2
+        
     },
     {
         "id": 3,
-        "nome": "Coxinha",
-        "imagem": "./Assets/src/image/main/produtos/beijinho.png",
-        "tipo": "Salgados",
-        "valor": 19.99,
-        "cliques": 0
+        "name": "Pastel de Belém",
+        "description": "This is a description test",
+        "image": "/assets/images/produtos/beijinho_id01.jpg",
+        "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
+        "type": "Doces",
+        "cost": 39.99,
+        "visualization": 0
+        
     },
     {
         "id": 4,
-        "nome": "Kibe",
-        "imagem": "./Assets/src/image/main/produtos/boliviano.png",
-        "tipo": "Salgados",
-        "valor": 9.99,
-        "cliques": 0
+        "name": "Boliviano",
+        "description": "This is a description test",
+        "image": "/assets/images/produtos/beijinho_id01.jpg",
+        "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
+        "type": "Salgados",
+        "cost": 19.99,
+        "visualization": 2
+        
     },
     {
         "id": 5,
-        "nome": "Pão Delícia",
-        "imagem": "./Assets/src/image/main/produtos/pastel doce.png",
-        "tipo": "Pães",
-        "valor": 39.99,
-        "cliques": 0
+        "name": "Empada",
+        "description": "This is a description test",
+        "image": "/assets/images/produtos/beijinho_id01.jpg",
+        "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
+        "type": "Salgados",
+        "cost": 9.99,
+        "visualization": 0
+        
     },
     {
         "id": 6,
-        "nome": "Kibe",
-        "imagem": "./Assets/src/image/main/produtos/boliviano.png",
-        "tipo": "Salgados",
-        "valor": 9.99,
-        "cliques": 0
+        "name": "Pão Delícia",
+        "description": "This is a description test",
+        "image": "/assets/images/produtos/pao-delicia_id06.jpg",
+        "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
+        "type": "Pães",
+        "cost": 39.99,
+        "visualization": 3
+        
     },
     {
         "id": 7,
-        "nome": "Pão Delícia",
-        "imagem": "./Assets/src/image/main/produtos/pastel doce.png",
-        "tipo": "Pães",
-        "valor": 39.99,
-        "cliques": 0
+        "name": "Kibe",
+        "description": "This is a description test",
+        "image": "/assets/images/produtos/kibe_id07.jpg",
+        "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
+        "type": "Salgados",
+        "cost": 9.99,
+        "visualization": 5
+        
     },
     {
         "id": 8,
-        "nome": "Bazinga",
-        "imagem": "./Assets/src/image/main/produtos/boliviano.png",
-        "tipo": "Salgados",
-        "valor": 9.99,
-        "cliques": 0
+        "name": "Pão Delícia",
+        "description": "This is a description test",
+        "image": "/assets/images/produtos/beijinho_id01.jpg",
+        "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
+        "type": "Pães",
+        "cost": 39.99,
+        "visualization": 0
+        
     },
     {
         "id": 9,
-        "nome": "Morin",
-        "imagem": "./Assets/src/image/main/produtos/pastel doce.png",
-        "tipo": "Pães",
-        "valor": 39.99,
-        "cliques": 0
+        "name": "Bazinga",
+        "description": "This is a description test",
+        "image": "/assets/images/produtos/beijinho_id01.jpg",
+        "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
+        "type": "Salgados",
+        "cost": 9.99,
+        "visualization": 0
+        
+    },
+    {
+        "id": 10,
+        "name": "Morin",
+        "description": "This is a description test",
+        "image": "/assets/images/produtos/beijinho_id01.jpg",
+        "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
+        "type": "Pães",
+        "cost": 39.99,
+        "visualization": 1
+        
+
     }
 ]

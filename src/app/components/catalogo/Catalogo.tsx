@@ -4,18 +4,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, FormEvent } from 'react';
 import Ribbon from '@/app/components/ribbon/Ribbon';
-import product01 from '../../../../public/assets/images/produtos/product01.jpg';
-import product02 from '../../../../public/assets/images/produtos/product02.jpg';
-import product03 from '../../../../public/assets/images/produtos/product03.jpg';
 import { IoSearch } from "react-icons/io5";
-import { LuArrowDownUp } from "react-icons/lu";
-import { LuFilter } from "react-icons/lu";
+import { LuArrowDownUp, LuFilter } from 'react-icons/lu';
+import dataProdutucs from '../../../../public/assets/data/produtos.json';
 
 const Catalogo = () => {
 
   const [spin, setSpin] = useState(false);
   const [isOrderByOpen, setIsOrderByOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [pageNumber, setPageNumber] = useState(1);
+  const itemsPerPage = 6;
+  
   
   const handleSearchSubmit = () => {
     // Lógica para o envio do formulário, TODO
@@ -44,6 +44,21 @@ const Catalogo = () => {
     handleSearchSubmit();
     closeDropdowns();
   };
+
+  const totalProducts = dataProdutucs.length;
+  const totalPages = Math.ceil(totalProducts / itemsPerPage);
+
+  const handleShowMore = (action: string) => {
+    if (action === 'Anterior' && pageNumber > 1) {
+      setPageNumber(pageNumber - 1);
+    } else if (action === 'Próximo' && pageNumber < totalPages) {
+      setPageNumber(pageNumber + 1);
+    }
+  };
+
+  const startIndex = (pageNumber - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  
   return (
     <main className='bg-quartenary'>
       <Ribbon ribbonText="Catálogo" altText="Catalogo de Produtos"/>
@@ -165,103 +180,68 @@ const Catalogo = () => {
         </aside>
 
         <section className='h-auto bg-cookieMain bg-cookieMain-small md:bg-cookieMain-medium lg:bg-cookieMain-large pt-5 lg:pt-8 md:pt-5 mb-10 bg-repeat-space '>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 md:px-5 lg:px-10  gap-0 md:gap-5 lg:gap-20 font-lily-script '>
-            <div className=' bg-white rounded-none md:rounded-3xl border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl group'>
-              <div className='w-full  border-secondary p-10 md:p-5 text-center'>
-                <Link href={'/errors/Error404'}>
-                  <figure className='flex flex-col gap-2 justify-center items-center text-center'>
-                    <Image src={product01} alt='produtos' className='w-full h-auto  rounded-t-lg'/>
-                    <small className='text-2xl font-bold text-footer/80 mt-6'>Pavê de chocolate</small>
-                    <p className='text-lg  text-fontColor2'>Pavê de chocolate e biscoito - FRIO</p>
-                    <p className='text-2xl font-semibold text-footer/80'> R$ 45,00</p>
-                  </figure>
-                </Link>
-              </div>
-            </div>
-            <div className=' bg-white rounded-none md:rounded-3xl border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl'>
-              <div className='w-full border-secondary p-10 md:p-5 text-center'>
-                <Link href={'/errors/Error404'}>
-                  <figure className='flex flex-col gap-2 justify-center items-center text-center'>
-                    <Image src={product02} alt='produtos' className='w-full h-auto  rounded-t-lg'/>
-                    <small className='text-2xl font-bold text-footer/80 mt-6'>Torta de Morango</small>
-                    <p className='text-lg  text-fontColor2'>Torta com cobertura de morango</p>
-                    <p className='text-2xl font-semibold text-footer/80'> R$ 55,00</p>
-                  </figure>
-                </Link>
-              </div>
-            </div>
-            <div className=' bg-white rounded-none md:rounded-3xl border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl'>
-              <div className='w-full   border-secondary p-10 md:p-5 text-center'>
-                <Link href={'/errors/Error404'}>
-                  <figure className='flex flex-col gap-2 justify-center items-center text-center'>
-                    <Image src={product03} alt='produtos' className='w-full h-auto  rounded-t-lg'/>
-                    <small className='text-2xl font-bold text-footer/80 mt-6'>Bolo de Cerejas </small>
-                    <p className='text-lg font-bold  text-fontColor2'>Bolinho de cerejas com raspas de chocolate branco e musse branco</p>
-                    <p className='text-2xl font-semibold text-footer/80'> R$ 45,00</p>
-                  </figure>
-                </Link>
-              </div>
-            </div>
-            <div className=' rounded-none md:rounded-3xl bg-white border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl'>
-              <div className='w-full border-secondary p-10 md:p-5 text-center'>
-                <Link href={'/errors/Error404'}>
-                  <figure className='flex flex-col gap-2 justify-center items-center text-center'>
-                    <Image src={product03} alt='produtos' className='w-full h-auto  rounded-t-lg'/>
-                    <small className='text-2xl font-bold text-footer/80 mt-6'>Bolo de vegano</small>
-                    <p className='text-lg font-bold  text-fontColor2'>Bolinho de cereja que ninguem gosta!</p>
-                    <p className='text-2xl font-semibold text-footer/80'> R$ 45,00</p>
-                  </figure>
-                </Link>
-              </div>
-            </div>
-            <div className= 'rounded-none md:rounded-3xl bg-white border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl'>
-              <div className='w-full   border-secondary p-10 md:p-5 text-center'>
-                <Link href={'/errors/Error404'}>
-                  <figure className='flex flex-col gap-2 justify-center items-center text-center'>
-                    <Image src={product02} alt='produtos' className='w-full h-auto  rounded-t-lg'/>
-                    <small className='text-2xl font-bold text-footer/80 mt-6'>Torta de gente rica!</small>
-                    <p className='text-lg  text-fontColor2'>Tem um gosto meio roxo!!</p>
-                    <p className='text-2xl font-semibold text-footer/80'> R$ 45,00</p>
-                  </figure>
-                </Link>
-              </div>
-            </div>
-            <div className=' bg-white rounded-none md:rounded-3xl border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl'>
-              <div className='w-full border-secondary p-10 md:p-5 text-center'>
-                <Link href={'/errors/Error404'}>
-                  <figure className='flex flex-col gap-2 justify-center items-center text-center'>
-                    <Image src={product03} alt='produtos' className='w-full h-auto  rounded-t-lg'/>
-                    <small className='text-2xl font-bold text-footer/80 mt-6'>Bolo de vegano</small>
-                    <p className='text-lg font-bold  text-fontColor2'>Bolinho de cereja que ninguem gosta!</p>
-                    <p className='text-2xl font-semibold text-footer/80'> R$ 45,00</p>
-                  </figure>
-                </Link>
-              </div>
-            </div>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 md:px-5 lg:px-10  gap-3 md:gap-5 lg:gap-20 font-lily-script '>
+        {
+              dataProdutucs &&
+                dataProdutucs
+                  .slice(startIndex, endIndex)
+                  .map((data) => {
+                    return (
+                      <div
+                        key={data.id}
+                        className='w-full bg-white rounded-none md:rounded-3xl border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl group'
+                      >
+                        <div className='w-full border-secondary p-5 md:p-10 text-center'>
+                          <Link href={'/errors/Error404'} >
+                            <figure className='flex flex-col gap-2 justify-center items-center text-center'>
+                              <Image
+                                src={data.image}
+                                width={500}
+                                height={500}
+                                alt={data.image_alt}
+                                className='w-full h-60 object-cover rounded-t-lg'
+                              />
+                              <small className='text-2xl font-bold text-footer/80 mt-6'>{data.name}</small>
+                              <p className='text-lg text-fontColor2'>{data.description}</p>
+                              <p className='text-2xl font-semibold text-footer/80'> R$ {data.cost}</p>
+                            </figure>
+                          </Link>
+                         </div>
+                      </div>
+                    );
+                  })
+              }
         </div>
           </section>
       </div>
 
       <section className="flex justify-center w-full py-6  ">
-    <a href="#" className="flex items-center px-4 py-2 mx-1  bg-primary text-white rounded-md cursor-not-allowed  ">
-        Anterior
-    </a>
+        <button onClick={() => handleShowMore('Anterior')} className={`flex items-center px-4 py-2 mx-1 bg-primary  text-white rounded-md ${pageNumber === 1 ? 'cursor-not-allowed ' : 'hover:bg-secondary'}`}>
+            Anterior
+        </button>
 
-    <div className='gap-2 flex '>
-      <Link href="#" className="items-center  px-4 py-2 mx-1  bg-primary text-white  transition-colors duration-300 transform  rounded-md sm:flex   hover:bg-secondary hover:text-white">
-          1
-      </Link>
-      <Link href="#" className="items-center  px-4 py-2 mx-1  bg-primary text-white transition-colors duration-300 transform  rounded-md sm:flex   hover:bg-secondary hover:text-white">
-          2
-      </Link>
-      <Link href="#" className="items-center  px-4 py-2 mx-1  bg-primary text-white transition-colors duration-300 transform  rounded-md sm:flex   hover:bg-secondary hover:text-white">
-          3
-      </Link>
-    </div>
+        <div className='gap-2 flex '>
+            {[...Array(totalPages)].map((_, index) => (
+              <button
+                key={index + 1}
+                onClick={() => setPageNumber(index + 1)}
+                className={`items-center px-4 py-2 mx-1 bg-primary text-white transition-colors duration-300 transform rounded-md sm:flex hover:bg-secondary ${
+                  pageNumber === index + 1 ? 'cursor-not-allowed' : ''
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
 
-    <Link href="#" className="flex items-center px-4 py-2 mx-1  bg-primary text-white transition-colors duration-300 transform  rounded-md   hover:bg-secondary hover:text-white">
-        Próximo
-    </Link>
+          <button
+            onClick={() => handleShowMore('Próximo')}
+            className={`flex items-center px-4 py-2 mx-1 bg-primary text-white transition-colors duration-300 transform rounded-md hover:bg-secondary ${
+              pageNumber === totalPages ? 'cursor-not-allowed' : ''
+            }`}
+          >
+            Próximo
+          </button>
 </section>
     </main>
   )
