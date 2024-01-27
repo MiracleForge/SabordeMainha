@@ -4,21 +4,21 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import Ribbon from '@/app/components/ribbon/Ribbon';
-import dataProdutucs from '../../../../public/assets/data/produtos.json';
+import Filter from '@/app/components/filter/Filter';
+import dataProducts from '../../../../public/assets/data/produtos.json';
 import Pagination from '@/app/components/pagination/Pagination';
 
 const Catalogo = () => {
   const [currentPage, setPageNumber] = useState(1);
-  const itemsPerPage = 6;
+  const [paginationRange, setPaginationRange] = useState({ startIndex: 0, endIndex: 6 });
 
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const displayedProducts = dataProdutucs.slice(startIndex, endIndex);
+  const displayedProducts = dataProducts.slice(paginationRange.startIndex, paginationRange.endIndex);
 
   return (
     <main className="bg-quartenary">
       <Ribbon ribbonText="Catálogo" altText="Catalogo de Produtos" />
-
+      <Filter/>
+      
       <div className='flex flex-row justify-between items-start '>
         <aside className='hidden md:flex flex-col gap-6 p-10 pt-28 md:pt-5 font-lily-script text-2xl text-footer/80 border w-1/5 md:w-1/3 lg:w-1/5'>
         <Link href={'#'} className='border-b-2 border-secondary border-dashed pb-3 text-center '>
@@ -72,10 +72,11 @@ const Catalogo = () => {
       </div>
 
       <Pagination
-        totalProducts={dataProdutucs.length}
+        totalProducts={dataProducts.length}
         itemsPerPage={6}
         currentPage={currentPage}
         setPageNumber={setPageNumber}
+        setPaginationRange={setPaginationRange}
       />
     </main>
   );

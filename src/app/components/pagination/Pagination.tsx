@@ -1,18 +1,22 @@
 "use client"
 import React from 'react';
-import { useState } from 'react';
 
 interface PaginatorProps {
     totalProducts: number;
     itemsPerPage: number;
     currentPage: number;
     setPageNumber: React.Dispatch<React.SetStateAction<number>>;
+    setPaginationRange: React.Dispatch<React.SetStateAction<{ startIndex: number; endIndex: number }>>;
   }
   
-  const Pagination: React.FC<PaginatorProps> = ({ totalProducts, itemsPerPage, currentPage, setPageNumber }) => {
+  const Pagination: React.FC<PaginatorProps> = ({
+    totalProducts,
+    itemsPerPage,
+    currentPage,
+    setPageNumber,
+    setPaginationRange,
+  }) => {
     const totalPages = Math.ceil(totalProducts / itemsPerPage);
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
   
     const handleShowMore = (action: string) => {
       if (action === 'Anterior' && currentPage > 1) {
@@ -21,6 +25,13 @@ interface PaginatorProps {
         setPageNumber((prevPage) => prevPage + 1);
       }
     };
+  
+    // Notify Catalogo about the updated pagination range
+    React.useEffect(() => {
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      setPaginationRange({ startIndex, endIndex });
+    }, [currentPage, itemsPerPage, setPaginationRange]);
 
   return (
     <section className="flex justify-center w-full py-6">
@@ -60,8 +71,3 @@ interface PaginatorProps {
 };
 
 export default Pagination;
-
-
-
-
-
