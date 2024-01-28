@@ -1,10 +1,14 @@
 "use client"
-import React from 'react';
-import { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState, useEffect } from 'react'; 
 import { IoSearch } from "react-icons/io5";
 import { LuArrowDownUp, LuFilter } from 'react-icons/lu';
 
-const Filter = () => {
+interface FilterProps {
+  setSortOption: (value: string) => void;
+  setPageNumber: Dispatch<SetStateAction<number>>; 
+}
+
+const Filter: React.FC<FilterProps> = ({ setSortOption, setPageNumber }) => {
     const [spin, setSpin] = useState(false);
     const [isOrderByOpen, setIsOrderByOpen] = useState(false);
     const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -13,30 +17,41 @@ const Filter = () => {
 
         // Lógica para o envio do formulário, TODO
         setSpin(true);
-      };
-      
-      const handleSearchClick = () => {
+    };
+    
+    const handleSearchClick = () => {
         handleSearchSubmit();
-      };
-      
-      const toggleDropdown = (
+    };
+    
+    const toggleDropdown = (
         dropdownState: boolean,
         setDropdownState: React.Dispatch<React.SetStateAction<boolean>>
-      ) => {
+    ) => {
         closeDropdowns();
         setDropdownState(!dropdownState);
-      };
-      
-      const closeDropdowns = () => {
+    };
+    
+    const closeDropdowns = () => {
         setIsOrderByOpen(false);
         setIsFilterOpen(false);
-      };
-      
-      const handleMenuItemClick = (item: string) => {
-        console.log(`Cliquei em: ${item}`);
+    };
+    
+    const handleMenuItemClick = (item: string) => {
+        setSortOption(item); 
+    
+
+        setTimeout(() => {
+            handleSearchSubmit();
+            closeDropdowns();
+
+            setPageNumber(1);
+        }, 0);
+    };
+
+    useEffect(() => {
         handleSearchSubmit();
-        closeDropdowns();
-      };
+    }, [setSortOption]);
+      
 
   return (
     <div className='flex flex-col md:flex-row p-4 mt-10 gap-5 md:gap-10'>
@@ -81,7 +96,7 @@ const Filter = () => {
               Ordem Alphabética
             </button>
             <button
-              onClick={() => handleMenuItemClick('Maior Preço')}
+              onClick={() => handleMenuItemClick('Menor Preço')}
               className='w-full block px-4 py-3 text-sm text-gray-600 text-left capitalize transition-colors duration-300 transform  hover:bg-gray-100'
             >
               Menor Preço

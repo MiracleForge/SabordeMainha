@@ -5,15 +5,33 @@ import Image from 'next/image';
 import { useState } from 'react';
 import dataProducts from '../../../../public/assets/data/produtos.json';
 import Pagination from '@/app/components/pagination/Pagination';
+import Filter from '@/app/components/filter/Filter';
+
 
 const Catalogo = () => {
   const [currentPage, setPageNumber] = useState(1);
   const [paginationRange, setPaginationRange] = useState({ startIndex: 0, endIndex: 6 });
+  const [sortOption, setSortOption] = useState('default');
 
-  const displayedProducts = dataProducts.slice(paginationRange.startIndex, paginationRange.endIndex);
+  let sortedProducts = [...dataProducts];
+
+  if (sortOption === 'Menor Preço') {
+    console.log('Sorting by Menor Preço');
+    sortedProducts = sortedProducts.sort((a, b) => a.cost - b.cost);
+  } else if (sortOption === 'Maior Preço') {
+    console.log('Sorting by Maior Preço');
+    sortedProducts = sortedProducts.sort((a, b) => b.cost - a.cost);
+  } else if (sortOption === 'Ordem Alphabética') {
+    console.log('Sorting by Ordem Alphabética');
+    sortedProducts = sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  const displayedProducts = sortedProducts.slice(paginationRange.startIndex, paginationRange.endIndex);
+
 
   return (
     <div className="bg-quartenary">
+       <Filter setSortOption={setSortOption} setPageNumber={setPageNumber} />
       <div className='flex flex-row justify-between items-start '>
         <aside className='hidden md:flex flex-col gap-6 p-10 pt-28 md:pt-5 font-lily-script text-2xl text-footer/80 border w-1/5 md:w-1/3 lg:w-1/5'>
         <button className='border-b-2 border-secondary border-dashed pb-3 text-center '>
@@ -40,6 +58,7 @@ const Catalogo = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 md:px-5 lg:px-10 gap-3 md:gap-5 lg:gap-12 mb-10 font-lily-script '>
 
               {displayedProducts.map((data) => (
+                
                   <div
                     key={data.id}
                     className='w-full  px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl bg-white border-2 border-secondary rounded-3xl hover:bg-secondary hover:border-white group group'
