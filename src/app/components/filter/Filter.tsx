@@ -6,7 +6,7 @@ import { LuArrowDownUp, LuFilter } from 'react-icons/lu';
 import dataProducts from '../../../../public/assets/data/produtos.json';
 
 interface FilterProps {
-  setSortOption: Dispatch<SetStateAction<string>>;
+  setSortOption?: Dispatch<SetStateAction<string>>;
   setPageNumber: Dispatch<SetStateAction<number>>;
   setDisplayedProducts: Dispatch<SetStateAction<any[]>>;
 }
@@ -39,7 +39,7 @@ const Filter: React.FC<FilterProps> = ({  setPageNumber, setDisplayedProducts })
   const handleMenuItemClick = (item: string) => {
     setSortOption(item);
 
-    // Adia a execução de handleSearchSubmit
+
     setTimeout(() => {
       handleSearchSubmit();
       closeDropdowns();
@@ -49,7 +49,7 @@ const Filter: React.FC<FilterProps> = ({  setPageNumber, setDisplayedProducts })
   };
 
   useEffect(() => {
-    // Atualizar a lógica de ordenação aqui
+
     let sortedProducts = [...dataProducts];
 
     if (sortOption === 'Menor Preço') {
