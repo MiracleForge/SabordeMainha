@@ -51,11 +51,11 @@ const HomePage = () => {
                     return (
                       <div
                         key={data.id}
-                        className='bg-white rounded-3xl border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl group'
+                        className='bg-white  px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl group border-2 border-secondary rounded-3xl hover:bg-secondary hover:border-white group'
                       >
-                        <div className='w-full border-secondary p-5 md:p-10 text-center'>
+                        <div className='w-full  p-5 md:p-8 text-center'>
                           <Link href={'/errors/Error404'} >
-                            <figure className='flex flex-col gap-2 justify-center items-center text-center'>
+                            <figure className='flex flex-col gap-2 justify-center items-center text-center  '>
                               <Image
                                 src={data.image}
                                 width={500}
@@ -63,9 +63,9 @@ const HomePage = () => {
                                 alt={data.image_alt}
                                 className='w-full h-60 object-cover rounded-t-lg'
                               />
-                              <small className='text-2xl font-bold text-footer/80 mt-6'>{data.name}</small>
-                              <p className='text-lg text-fontColor2'>{data.description}</p>
-                              <p className='text-2xl font-semibold text-footer/80'> R$ {data.cost}</p>
+                              <small className='text-3xl font-bold text-footer mt-6 group-hover:text-white'>{data.name}</small>
+                              <p className='text-lg text-footer font-montserrat'>{data.description}</p>
+                              <p className='text-2xl font-semibold text-footer'> R$ {data.cost}</p>
                             </figure>
                           </Link>
                          </div>
