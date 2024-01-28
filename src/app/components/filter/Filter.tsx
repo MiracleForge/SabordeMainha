@@ -3,55 +3,72 @@ import React, { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import { IoSearch } from "react-icons/io5";
 import { LuArrowDownUp, LuFilter } from 'react-icons/lu';
 
+import dataProducts from '../../../../public/assets/data/produtos.json';
+
 interface FilterProps {
-  setSortOption: (value: string) => void;
-  setPageNumber: Dispatch<SetStateAction<number>>; 
+  setSortOption: Dispatch<SetStateAction<string>>;
+  setPageNumber: Dispatch<SetStateAction<number>>;
+  setDisplayedProducts: Dispatch<SetStateAction<any[]>>;
 }
 
-const Filter: React.FC<FilterProps> = ({ setSortOption, setPageNumber }) => {
-    const [spin, setSpin] = useState(false);
-    const [isOrderByOpen, setIsOrderByOpen] = useState(false);
-    const [isFilterOpen, setIsFilterOpen] = useState(false);
+const Filter: React.FC<FilterProps> = ({  setPageNumber, setDisplayedProducts }) => {
+  const [spin, setSpin] = useState(false);
+  const [isOrderByOpen, setIsOrderByOpen] = useState(false);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [sortOption, setSortOption] = useState<string>('default');
 
-    const handleSearchSubmit = () => {
 
-        // Lógica para o envio do formulário, TODO
-        setSpin(true);
-    };
-    
-    const handleSearchClick = () => {
-        handleSearchSubmit();
-    };
-    
-    const toggleDropdown = (
-        dropdownState: boolean,
-        setDropdownState: React.Dispatch<React.SetStateAction<boolean>>
-    ) => {
-        closeDropdowns();
-        setDropdownState(!dropdownState);
-    };
-    
-    const closeDropdowns = () => {
-        setIsOrderByOpen(false);
-        setIsFilterOpen(false);
-    };
-    
-    const handleMenuItemClick = (item: string) => {
-        setSortOption(item); 
-    
+  const handleSearchSubmit = () => {
+    // Lógica para o envio do formulário, TODO
+    setSpin(true);
+  };
 
-        setTimeout(() => {
-            handleSearchSubmit();
-            closeDropdowns();
+  const toggleDropdown = (
+    dropdownState: boolean,
+    setDropdownState: React.Dispatch<React.SetStateAction<boolean>>
+  ) => {
+    closeDropdowns();
+    setDropdownState(!dropdownState);
+  };
 
-            setPageNumber(1);
-        }, 0);
-    };
+  const closeDropdowns = () => {
+    setIsOrderByOpen(false);
+    setIsFilterOpen(false);
+  };
 
-    useEffect(() => {
-        handleSearchSubmit();
-    }, [setSortOption]);
-      
+  const handleMenuItemClick = (item: string) => {
+    setSortOption(item);
+
+    // Adia a execução de handleSearchSubmit
+    setTimeout(() => {
+      handleSearchSubmit();
+      closeDropdowns();
+
+      setPageNumber(1);
+    }, 0);
+  };
+
+  useEffect(() => {
+    // Atualizar a lógica de ordenação aqui
+    let sortedProducts = [...dataProducts];
+
+    if (sortOption === 'Menor Preço') {
+      console.log('Sorting by Menor Preço');
+      sortedProducts = sortedProducts.sort((a, b) => a.cost - b.cost);
+    } else if (sortOption === 'Maior Preço') {
+      console.log('Sorting by Maior Preço');
+      sortedProducts = sortedProducts.sort((a, b) => b.cost - a.cost);
+    } else if (sortOption === 'Ordem Alphabética') {
+      console.log('Sorting by Ordem Alphabética');
+      sortedProducts = sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    setDisplayedProducts(sortedProducts); // Passa os produtos ordenados de volta para o componente Catalogo
+  }, [sortOption, setDisplayedProducts]);
+
+  useEffect(() => {
+    handleSearchSubmit();
+  }, [sortOption]);
 
   return (
     <div className='flex flex-col md:flex-row p-4 mt-10 gap-5 md:gap-10'>
@@ -69,7 +86,7 @@ const Filter: React.FC<FilterProps> = ({ setSortOption, setPageNumber }) => {
         <IoSearch
           size='1.5rem'
           className={spin ? 'animate-spin' : ''}
-          onClick={handleSearchClick}
+          
         />
       </form>
     </div>
