@@ -3,8 +3,6 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import Ribbon from '@/app/components/ribbon/Ribbon';
-import Filter from '@/app/components/filter/Filter';
 import dataProducts from '../../../../public/assets/data/produtos.json';
 import Pagination from '@/app/components/pagination/Pagination';
 
@@ -15,10 +13,7 @@ const Catalogo = () => {
   const displayedProducts = dataProducts.slice(paginationRange.startIndex, paginationRange.endIndex);
 
   return (
-    <main className="bg-quartenary">
-      <Ribbon ribbonText="Catálogo" altText="Catalogo de Produtos" />
-      <Filter/>
-      
+    <div className="bg-quartenary">
       <div className='flex flex-row justify-between items-start '>
         <aside className='hidden md:flex flex-col gap-6 p-10 pt-28 md:pt-5 font-lily-script text-2xl text-footer/80 border w-1/5 md:w-1/3 lg:w-1/5'>
         <Link href={'#'} className='border-b-2 border-secondary border-dashed pb-3 text-center '>
@@ -41,8 +36,8 @@ const Catalogo = () => {
           </Link>
         </aside>
 
-        <section className='h-auto bg-cookieMain bg-cookieMain-small md:bg-cookieMain-medium lg:bg-cookieMain-large pt-5 lg:pt-8 md:pt-5 mb-10 bg-repeat-space '>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 md:px-5 lg:px-10 gap-3 md:gap-5 lg:gap-20 font-lily-script '>
+        <section className='h-auto bg-cookieMain bg-cookieMain-small md:bg-cookieMain-medium lg:bg-cookieMain-large pt-5 lg:pt-8 md:pt-5 bg-repeat-space '>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 md:px-5 lg:px-10 gap-3 md:gap-5 lg:gap-20 mb-10 font-lily-script '>
 
               {displayedProducts.map((data) => (
                   <div
@@ -78,7 +73,7 @@ const Catalogo = () => {
         setPageNumber={setPageNumber}
         setPaginationRange={setPaginationRange}
       />
-    </main>
+    </div>
   );
 };
 

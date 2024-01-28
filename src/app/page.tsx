@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-
 import Banner from '@/app/components/banner/Banner';
 import HomePage from './components/homepage/HomePage';
 

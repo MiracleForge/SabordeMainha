@@ -51,7 +51,7 @@ const HomePage = () => {
                     return (
                       <div
                         key={data.id}
-                        className='bg-white rounded-none md:rounded-3xl border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl group'
+                        className='bg-white rounded-3xl border-primary px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl group'
                       >
                         <div className='w-full border-secondary p-5 md:p-10 text-center'>
                           <Link href={'/errors/Error404'} >
