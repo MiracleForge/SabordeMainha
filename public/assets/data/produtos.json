@@ -1,13 +1,12 @@
 [
-
     {
         "id": 1,
-        "name": "Beijinho",
+        "name": "Beijinho/ un",
         "description": "Doce tradicional feito à base de coco e leite condensado.",
         "image": "/assets/images/produtos/beijinho_id01.jpg",
         "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,geralmente feito de coco relado e leite moça",
         "type": "Doces",
-        "cost": 19.99,
+        "cost": 3.20,
         "visualization": 1
     },
     {
@@ -23,91 +22,77 @@
     },
     {
         "id": 3,
-        "name": "Pastel de Belém",
-        "description": "This is a description test",
-        "image": "/assets/images/produtos/beijinho_id01.jpg",
-        "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
+        "name": "Pastel de Belém - 6 unidades",
+        "description": "Iguaria portuguesa que combina uma crosta folhada delicadamente caramelizada com um recheio cremoso e aromático de creme de ovos.",
+        "image": "/assets/images/produtos/pastel-belem_id03.jpg",
+        "image_alt": "A imagem mostra um pano preto contendo três pasteis de belém, comida tipica portuguesa.",
         "type": "Doces",
-        "cost": 39.99,
+        "cost": 35.00,
         "visualization": 0
         
     },
     {
         "id": 4,
-        "name": "Boliviano",
-        "description": "This is a description test",
-        "image": "/assets/images/produtos/beijinho_id01.jpg",
-        "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
+        "name": "Boliviano/ un",
+        "description": "Bolinho frito com recheio picante com massa de coxinha, carne ou frango, pimenta, uvas passas e um toque adocicado de açúcar com canela,",
+        "image": "/assets/images/produtos/boliviano_id04.jpeg",
+        "image_alt": "A imagem mostra uma mesa com uma toalha azul, e em cima uma prato contendo várias salgados conhecidos como Boliviano",
         "type": "Salgados",
-        "cost": 19.99,
+        "cost": 3.30,
         "visualization": 2
         
     },
     {
         "id": 5,
-        "name": "Empada",
-        "description": "This is a description test",
-        "image": "/assets/images/produtos/beijinho_id01.jpg",
-        "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
+        "name": "Empada/ un",
+        "description": "Fina massa que envolve um recheio suculento de franco, ou camarão, palmito ",
+        "image": "/assets/images/produtos/empada_id05.jpeg",
+        "image_alt": "A imagem um pano quadriculado com um prato branco  contando algumas empadas e uma jarra de suco",
         "type": "Salgados",
-        "cost": 9.99,
+        "cost": 3.30,
         "visualization": 0
         
     },
     {
         "id": 6,
-        "name": "Pão Delícia",
-        "description": "This is a description test",
+        "name": "Pão Delícia - 25 unidades",
+        "description": "O Pão Delícia possue uma massa levemente adocicada, e com recheios versáteis, resultando em uma textura macia e um sabor suave e agradável.",
         "image": "/assets/images/produtos/pao-delicia_id06.jpg",
         "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
         "type": "Pães",
-        "cost": 39.99,
+        "cost": 25.00,
         "visualization": 3
         
     },
     {
         "id": 7,
-        "name": "Kibe",
-        "description": "This is a description test",
+        "name": "Kibe - 10 unidades",
+        "description": "Kibe 20 gramas, Sabor tradicional de carne temperada , ou com mussarela e requeijão",
         "image": "/assets/images/produtos/kibe_id07.jpg",
         "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
         "type": "Salgados",
-        "cost": 9.99,
+        "cost": 18.00,
         "visualization": 5
         
     },
     {
-        "id": 8,
-        "name": "Pão Delícia",
-        "description": "This is a description test",
-        "image": "/assets/images/produtos/beijinho_id01.jpg",
-        "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
-        "type": "Pães",
-        "cost": 39.99,
-        "visualization": 0
-        
-    },
-    {
-        "id": 9,
-        "name": "Bazinga",
-        "description": "This is a description test",
-        "image": "/assets/images/produtos/beijinho_id01.jpg",
-        "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
-        "type": "Salgados",
-        "cost": 9.99,
-        "visualization": 0
-        
-    },
-    {
         "id": 10,
-        "name": "Morin",
-        "description": "This is a description test",
-        "image": "/assets/images/produtos/beijinho_id01.jpg",
+        "name": "Bolinho de queijo - 20 unidades",
+        "description": "Bolinho de massa , com recheio de queijo mussarela ou camarão",
+        "image": "/assets/images/produtos/bolinho-queijo_id10.jpg",
         "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
-        "type": "Pães",
-        "cost": 39.99,
+        "type": "Salgados de Festa",
+        "cost": 35.00,
         "visualization": 1
-        
-
+    },
+    {
+        "id": 11,
+        "name": "Torta de Brigadeiro",
+        "description": "Torta de brigadeiro, com nozes",
+        "image": "/assets/images/produtos/torta-brigadeiro_id11.jpg",
+        "image_alt": "A imagem mostra uma torta com cobertura de brigadeiro e noses moidas em cima",
+        "type": "Bolos Tradicionais",
+        "cost": 119.00,
+        "visualization": 1
     }
 ]

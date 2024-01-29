@@ -1,5 +1,6 @@
 "use client"
 import React from 'react';
+import Link from 'next/link';
 
 interface PaginatorProps {
     totalProducts: number;
@@ -26,7 +27,6 @@ interface PaginatorProps {
       }
     };
   
-    // Notify Catalogo about the updated pagination range
     React.useEffect(() => {
       const startIndex = (currentPage - 1) * itemsPerPage;
       const endIndex = startIndex + itemsPerPage;
@@ -35,39 +35,47 @@ interface PaginatorProps {
 
   return (
     <section className="flex justify-center w-full py-6">
-      <button
-        onClick={() => handleShowMore('Anterior')}
-        className={`flex items-center px-4 py-2 mx-1 bg-primary  text-white rounded-md transition-colors duration-300 ${
-            currentPage === 1 ? 'cursor-not-allowed ' : 'hover:bg-secondary'
-        }`}
-      >
-        Anterior
-      </button>
+      <Link href={'#startCatalogy'}>
+        <button
+          onClick={() => handleShowMore('Anterior')}
+          className={`flex items-center px-4 py-2 mx-1 bg-primary  text-white rounded-md transition-colors duration-300 ${
+            currentPage === 1 ? 'cursor-not-allowed' : 'hover:bg-secondary'
+          }`}
+          >
+          Anterior
+        </button>
+      </Link>
 
       <div className='gap-2 flex '>
         {[...Array(totalPages)].map((_, index) => (
-          <button
-          key={index + 1}
-          onClick={() => setPageNumber(index + 1)}
-          className={`items-center px-4 py-2 mx-1 rounded-md ${
-            currentPage === index + 1
-              ? 'bg-secondary cursor-not-allowed'
-              : 'bg-primary hover:bg-secondary text-white transition-colors duration-300 sm:flex'
-          }`}
-        >
-            {index + 1}
-          </button>
+          <Link href={'#startCatalogy'}>
+            <button
+            key={index + 1}
+            onClick={() => setPageNumber(index + 1)}
+            className={`items-center px-4 py-2 mx-1 rounded-md ${
+              currentPage === index + 1
+                ? 'bg-secondary cursor-not-allowed'
+                : 'bg-primary hover:bg-secondary text-white transition-colors duration-300 sm:flex'
+            }`}
+          >
+              {index + 1}
+
+            </button>
+          </Link>
         ))}
       </div>
 
-      <button
-        onClick={() => handleShowMore('Próximo')}
-        className={`flex items-center px-4 py-2 mx-1 bg-primary text-white transition-colors duration-300 rounded-md  ${
-          currentPage === totalPages ? 'cursor-not-allowed ' : 'hover:bg-secondary'
-        }`}
-      >
-        Próximo
-      </button>
+      <Link href={'#startCatalogy'}>
+        <button
+          onClick={() => handleShowMore('Próximo')}
+          className={`flex items-center px-4 py-2 mx-1 bg-primary text-white transition-colors duration-300 rounded-md  ${
+            currentPage === totalPages ? 'cursor-not-allowed ' : 'hover:bg-secondary'
+          }`}
+        >
+          Próximo
+
+        </button>
+      </Link>
     </section>
   );
 };

@@ -96,7 +96,7 @@ const Filter: React.FC<FilterProps> = ({  setPageNumber, setDisplayedProducts })
       <div className='inline-block md:flex relative ml-auto'>
         <button
             onClick={() => toggleDropdown(isOrderByOpen, setIsOrderByOpen)}
-          className='flex items-center px-2 py-1 bg-white/40 border border-transparent rounded-md  focus:border-blue-500 focus:ring-opacity-40  focus:ring-blue-300 focus:ring focus:outline-none'
+          className='flex items-center px-2 py-1 bg-white/40 border border-transparent rounded-md hover:bg-white/60'
         >
           <LuArrowDownUp size='1.5rem' className='mr-1' />
           <h3 className='font-montserrat font-medium'>Ordenar Por</h3>
@@ -124,7 +124,7 @@ const Filter: React.FC<FilterProps> = ({  setPageNumber, setDisplayedProducts })
             >
               Maior Preço
             </button>
-            {/* Adicione mais itens do menu conforme necessário */}
+
           </div>
         )}
       </div>
@@ -132,7 +132,7 @@ const Filter: React.FC<FilterProps> = ({  setPageNumber, setDisplayedProducts })
       <div className='flex md:justify-end mx-auto md:mx-2 md:mr-6 pb-6 md:pb-0'>
         <button
           onClick={() => toggleDropdown(isFilterOpen, setIsFilterOpen)}
-          className='flex items-center px-2 py-1 bg-white/40 border border-transparent rounded-md focus:border-blue-500 focus:ring-opacity-40  focus:ring-blue-300 focus:outline-none'
+          className='flex items-center px-2 py-1 bg-white/40 border border-transparent rounded-md hover:bg-white/60'
         >
           <LuFilter size='1.5rem' className='mr-1' />
           <h3 className='font-montserrat font-medium'>Filtrar Por</h3>
@@ -143,18 +143,42 @@ const Filter: React.FC<FilterProps> = ({  setPageNumber, setDisplayedProducts })
             onClick={closeDropdowns}
           >
             <button
-              onClick={() => handleMenuItemClick('Option 1')}
+              onClick={() => handleMenuItemClick('Bolos Tradicionais')}
               className='w-full block px-4 py-3 text-sm text-gray-600 text-left capitalize transition-colors duration-300 transform 00 hover:bg-gray-100'
             >
-              Option 1
+              Bolos Tradicionais
             </button>
             <button
-              onClick={() => handleMenuItemClick('Option 2')}
+              onClick={() => handleMenuItemClick('Bolos de Aniversário')}
               className='w-full block px-4 py-3 text-sm text-gray-600 text-left capitalize transition-colors duration-300 transform 00 hover:bg-gray-100 '
             >
-              Option 2
+              Bolos de Aniversário
             </button>
-            {/* Adicione mais itens do menu conforme necessário */}
+            <button
+              onClick={() => handleMenuItemClick('Confeitaria')}
+              className='w-full block px-4 py-3 text-sm text-gray-600 text-left capitalize transition-colors duration-300 transform 00 hover:bg-gray-100 '
+            >
+              Confeitaria
+            </button>
+            <button
+              onClick={() => handleMenuItemClick('Doces de Festa')}
+              className='w-full block px-4 py-3 text-sm text-gray-600 text-left capitalize transition-colors duration-300 transform 00 hover:bg-gray-100 '
+            >
+              Doces de Festa
+            </button>
+            <button
+              onClick={() => handleMenuItemClick('Salgados')}
+              className='w-full block px-4 py-3 text-sm text-gray-600 text-left capitalize transition-colors duration-300 transform 00 hover:bg-gray-100 '
+            >
+              Salgados
+            </button>
+            <button
+              onClick={() => handleMenuItemClick('Tortas Salgadas')}
+              className='w-full block px-4 py-3 text-sm text-gray-600 text-left capitalize transition-colors duration-300 transform 00 hover:bg-gray-100 '
+            >
+              Tortas Salgadas
+            </button>
+
           </div>
         )}
       </div>
