@@ -37,15 +37,20 @@ const Filter: React.FC<FilterProps> = ({  setPageNumber, setDisplayedProducts })
   };
 
   const handleMenuItemClick = (item: string) => {
-    setSortOption(item);
 
+    setPageNumber(1);
 
-    setTimeout(() => {
-      handleSearchSubmit();
-      closeDropdowns();
+    setSortOption((prevSortOption) => {
+      if (prevSortOption !== item) {
 
-      setPageNumber(1);
-    }, 0);
+        setTimeout(() => {
+          handleSearchSubmit();
+          closeDropdowns();
+        }, 0);
+      }
+  
+      return item;
+    });
   };
 
   useEffect(() => {
@@ -61,7 +66,26 @@ const Filter: React.FC<FilterProps> = ({  setPageNumber, setDisplayedProducts })
     } else if (sortOption === 'Ordem Alphabética') {
       console.log('Sorting by Ordem Alphabética');
       sortedProducts = sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+    }else if (sortOption === 'Bolos Tradicionais') {
+      console.log('Filtering by Bolos Tradicionais');
+      sortedProducts = sortedProducts.filter(product => product.type === 'Bolos Tradicionais');
+    }else if (sortOption === 'Bolos de Aniversário') {
+      console.log('Filtering by Bolos de Aniversário');
+      sortedProducts = sortedProducts.filter(product => product.type === 'Bolos de Aniversário');
+    }else if (sortOption === 'Confeitaria') {
+      console.log('Filtering by Confeitaria');
+      sortedProducts = sortedProducts.filter(product => product.type === 'Confeitaria');
+    }else if (sortOption === 'Doces de Festa') {
+      console.log('Filtering by Doces de Festa');
+      sortedProducts = sortedProducts.filter(product => product.type === 'Doces de Festa');
+    }else if (sortOption === 'Salgados') {
+      console.log('Filtering by Salgados');
+      sortedProducts = sortedProducts.filter(product => product.type === 'Salgados');
+    }else if (sortOption === 'Tortas Salgadas') {
+      console.log('Filtering by Tortas Salgadas');
+      sortedProducts = sortedProducts.filter(product => product.type === 'Tortas Salgadas');
     }
+
 
     setDisplayedProducts(sortedProducts); // Passa os produtos ordenados de volta para o componente Catalogo
   }, [sortOption, setDisplayedProducts]);

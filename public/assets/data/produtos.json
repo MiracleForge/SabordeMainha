@@ -5,7 +5,7 @@
         "description": "Doce tradicional feito à base de coco e leite condensado.",
         "image": "/assets/images/produtos/beijinho_id01.jpg",
         "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,geralmente feito de coco relado e leite moça",
-        "type": "Doces",
+        "type": "Doces de Festa",
         "cost": 3.20,
         "visualization": 1
     },
@@ -26,7 +26,7 @@
         "description": "Iguaria portuguesa que combina uma crosta folhada delicadamente caramelizada com um recheio cremoso e aromático de creme de ovos.",
         "image": "/assets/images/produtos/pastel-belem_id03.jpg",
         "image_alt": "A imagem mostra um pano preto contendo três pasteis de belém, comida tipica portuguesa.",
-        "type": "Doces",
+        "type": "Confeitaria",
         "cost": 35.00,
         "visualization": 0
         
@@ -59,7 +59,7 @@
         "description": "O Pão Delícia possue uma massa levemente adocicada, e com recheios versáteis, resultando em uma textura macia e um sabor suave e agradável.",
         "image": "/assets/images/produtos/pao-delicia_id06.jpg",
         "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
-        "type": "Pães",
+        "type": "Salgados",
         "cost": 25.00,
         "visualization": 3
         
