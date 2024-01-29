@@ -54,45 +54,45 @@ const Filter: React.FC<FilterProps> = ({  setPageNumber, setDisplayedProducts })
   };
 
   useEffect(() => {
-
-    let sortedProducts = [...dataProducts];
-
+    let filteredProducts = [...dataProducts];
+  
+    // Apply filter based on the selected type
+    if (sortOption === 'Bolos Tradicionais') {
+      console.log('Filtering by Bolos Tradicionais');
+      filteredProducts = filteredProducts.filter(product => product.type === 'Bolos Tradicionais');
+    } else if (sortOption === 'Bolos de Aniversário') {
+      console.log('Filtering by Bolos de Aniversário');
+      filteredProducts = filteredProducts.filter(product => product.type === 'Bolos de Aniversário');
+    } else if (sortOption === 'Confeitaria') {
+      console.log('Filtering by Confeitaria');
+      filteredProducts = filteredProducts.filter(product => product.type === 'Confeitaria');
+    } else if (sortOption === 'Doces de Festa') {
+      console.log('Filtering by Doces de Festa');
+      filteredProducts = filteredProducts.filter(product => product.type === 'Doces de Festa');
+    } else if (sortOption === 'Salgados') {
+      console.log('Filtering by Salgados');
+      filteredProducts = filteredProducts.filter(product => product.type === 'Salgados');
+    } else if (sortOption === 'Tortas Salgadas') {
+      console.log('Filtering by Tortas Salgadas');
+      filteredProducts = filteredProducts.filter(product => product.type === 'Tortas Salgadas');
+    }
+  
+    // Apply sorting based on the selected sorting option
     if (sortOption === 'Menor Preço') {
       console.log('Sorting by Menor Preço');
-      sortedProducts = sortedProducts.sort((a, b) => a.cost - b.cost);
+      filteredProducts.sort((a, b) => a.cost - b.cost);
     } else if (sortOption === 'Maior Preço') {
       console.log('Sorting by Maior Preço');
-      sortedProducts = sortedProducts.sort((a, b) => b.cost - a.cost);
+      filteredProducts.sort((a, b) => b.cost - a.cost);
     } else if (sortOption === 'Ordem Alphabética') {
       console.log('Sorting by Ordem Alphabética');
-      sortedProducts = sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
-    }else if (sortOption === 'Bolos Tradicionais') {
-      console.log('Filtering by Bolos Tradicionais');
-      sortedProducts = sortedProducts.filter(product => product.type === 'Bolos Tradicionais');
-    }else if (sortOption === 'Bolos de Aniversário') {
-      console.log('Filtering by Bolos de Aniversário');
-      sortedProducts = sortedProducts.filter(product => product.type === 'Bolos de Aniversário');
-    }else if (sortOption === 'Confeitaria') {
-      console.log('Filtering by Confeitaria');
-      sortedProducts = sortedProducts.filter(product => product.type === 'Confeitaria');
-    }else if (sortOption === 'Doces de Festa') {
-      console.log('Filtering by Doces de Festa');
-      sortedProducts = sortedProducts.filter(product => product.type === 'Doces de Festa');
-    }else if (sortOption === 'Salgados') {
-      console.log('Filtering by Salgados');
-      sortedProducts = sortedProducts.filter(product => product.type === 'Salgados');
-    }else if (sortOption === 'Tortas Salgadas') {
-      console.log('Filtering by Tortas Salgadas');
-      sortedProducts = sortedProducts.filter(product => product.type === 'Tortas Salgadas');
+      filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
     }
-
-
-    setDisplayedProducts(sortedProducts); // Passa os produtos ordenados de volta para o componente Catalogo
+  
+    setDisplayedProducts(filteredProducts);
   }, [sortOption, setDisplayedProducts]);
-
-  useEffect(() => {
-    handleSearchSubmit();
-  }, [sortOption]);
+  
+  
 
   return (
     <div className='flex flex-col md:flex-row p-4 mt-10 gap-5 md:gap-10'>
