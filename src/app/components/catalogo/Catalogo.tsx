@@ -20,9 +20,9 @@ const Catalogo = () => {
         setPageNumber={setPageNumber}
         setDisplayedProducts={setDisplayedProducts}
       />
-      <div className='flex flex-row justify-between items-start '>
+      <div className='flex flex-row  items-start '>
         <aside className='hidden md:flex flex-col gap-6 p-10 pt-28 md:pt-5 font-lily-script text-2xl text-footer/80 border w-1/5 md:w-1/3 lg:w-1/5'>
-        <button className='border-b-2 border-secondary border-dashed pb-3 text-center '>
+        <button  className='border-b-2 border-secondary border-dashed pb-3 text-center '>
             <h3 className='translate-y-0 hover:-translate-y-2 transition-transform duration-700'>Bolos Tradicionais</h3>
           </button>
           <button className='border-b-2 border-secondary border-dashed pb-3 text-center '>
@@ -48,7 +48,7 @@ const Catalogo = () => {
           </button>
         </aside>
 
-        <section className='h-auto bg-cookieMain bg-cookieMain-small md:bg-cookieMain-medium lg:bg-cookieMain-large pt-5 lg:pt-8 md:pt-5 bg-repeat-space '>
+        <section className='h-auto bg-cookieMain bg-cookieMain-small md:bg-cookieMain-medium lg:bg-cookieMain-large pt-5 lg:pt-8 md:pt-5 bg-repeat-space w-full'>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-3 md:px-5 lg:px-10 gap-3 md:gap-5 lg:gap-12 mb-10 font-lily-script '>
 
           {displayedProducts.slice(paginationRange.startIndex, paginationRange.endIndex).map((data) => (

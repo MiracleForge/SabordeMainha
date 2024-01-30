@@ -44,7 +44,7 @@ const Filter: React.FC<FilterProps> = ({  setPageNumber, setDisplayedProducts })
       if (prevSortOption !== item) {
 
         setTimeout(() => {
-          handleSearchSubmit();
+          //handleSearchSubmit();
           closeDropdowns();
         }, 0);
       }
@@ -53,43 +53,44 @@ const Filter: React.FC<FilterProps> = ({  setPageNumber, setDisplayedProducts })
     });
   };
 
-  useEffect(() => {
+ useEffect(() => {
     let filteredProducts = [...dataProducts];
+    let resultedFilteredProducts = [...filteredProducts]; // Inicialmente, mantenha todos os produtos
   
     // Apply filter based on the selected type
     if (sortOption === 'Bolos Tradicionais') {
       console.log('Filtering by Bolos Tradicionais');
-      filteredProducts = filteredProducts.filter(product => product.type === 'Bolos Tradicionais');
+      resultedFilteredProducts = filteredProducts.filter(product => product.type === 'Bolos Tradicionais');
     } else if (sortOption === 'Bolos de Aniversário') {
       console.log('Filtering by Bolos de Aniversário');
-      filteredProducts = filteredProducts.filter(product => product.type === 'Bolos de Aniversário');
+      resultedFilteredProducts = filteredProducts.filter(product => product.type === 'Bolos de Aniversário');
     } else if (sortOption === 'Confeitaria') {
       console.log('Filtering by Confeitaria');
-      filteredProducts = filteredProducts.filter(product => product.type === 'Confeitaria');
+      resultedFilteredProducts = filteredProducts.filter(product => product.type === 'Confeitaria');
     } else if (sortOption === 'Doces de Festa') {
       console.log('Filtering by Doces de Festa');
-      filteredProducts = filteredProducts.filter(product => product.type === 'Doces de Festa');
+      resultedFilteredProducts = filteredProducts.filter(product => product.type === 'Doces de Festa');
     } else if (sortOption === 'Salgados') {
       console.log('Filtering by Salgados');
-      filteredProducts = filteredProducts.filter(product => product.type === 'Salgados');
+      resultedFilteredProducts = filteredProducts.filter(product => product.type === 'Salgados');
     } else if (sortOption === 'Tortas Salgadas') {
       console.log('Filtering by Tortas Salgadas');
-      filteredProducts = filteredProducts.filter(product => product.type === 'Tortas Salgadas');
+      resultedFilteredProducts = filteredProducts.filter(product => product.type === 'Tortas Salgadas');
     }
   
     // Apply sorting based on the selected sorting option
     if (sortOption === 'Menor Preço') {
       console.log('Sorting by Menor Preço');
-      filteredProducts.sort((a, b) => a.cost - b.cost);
+      resultedFilteredProducts.sort((a, b) => a.cost - b.cost);
     } else if (sortOption === 'Maior Preço') {
       console.log('Sorting by Maior Preço');
-      filteredProducts.sort((a, b) => b.cost - a.cost);
+      resultedFilteredProducts.sort((a, b) => b.cost - a.cost);
     } else if (sortOption === 'Ordem Alphabética') {
       console.log('Sorting by Ordem Alphabética');
-      filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+      resultedFilteredProducts.sort((a, b) => a.name.localeCompare(b.name));
     }
   
-    setDisplayedProducts(filteredProducts);
+    setDisplayedProducts(resultedFilteredProducts);
   }, [sortOption, setDisplayedProducts]);
   
   
