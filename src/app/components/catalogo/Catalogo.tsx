@@ -80,7 +80,7 @@ const Catalogo = () => {
       </div>
 
       <Pagination
-        totalProducts={dataProducts.length}
+        totalProducts={displayedProducts.length}
         itemsPerPage={6}
         currentPage={currentPage}
         setPageNumber={setPageNumber}

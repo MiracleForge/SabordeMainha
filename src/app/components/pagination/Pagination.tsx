@@ -33,51 +33,47 @@ interface PaginatorProps {
       setPaginationRange({ startIndex, endIndex });
     }, [currentPage, itemsPerPage, setPaginationRange]);
 
-  return (
-    <section className="flex justify-center w-full py-6">
-      <Link href={'#startCatalogy'}>
+    return (
+      <section className="flex justify-center w-full py-6">
         <button
           onClick={() => handleShowMore('Anterior')}
           className={`flex items-center px-4 py-2 mx-1 bg-primary  text-white rounded-md transition-colors duration-300 ${
             currentPage === 1 ? 'cursor-not-allowed' : 'hover:bg-secondary'
           }`}
-          >
+          disabled={currentPage === 1}
+        >
           Anterior
         </button>
-      </Link>
-
-      <div className='gap-2 flex '>
-        {[...Array(totalPages)].map((_, index) => (
-          <Link href={'#startCatalogy'}>
+  
+        <div className='gap-2 flex '>
+          {[...Array(totalPages)].map((_, index) => (
             <button
-            key={index + 1}
-            onClick={() => setPageNumber(index + 1)}
-            className={`items-center px-4 py-2 mx-1 rounded-md ${
-              currentPage === index + 1
-                ? 'bg-secondary cursor-not-allowed'
-                : 'bg-primary hover:bg-secondary text-white transition-colors duration-300 sm:flex'
-            }`}
-          >
+              key={index + 1}
+              onClick={() => setPageNumber(index + 1)}
+              className={`items-center px-4 py-2 mx-1 rounded-md ${
+                currentPage === index + 1
+                  ? 'bg-secondary cursor-not-allowed'
+                  : 'bg-primary hover:bg-secondary text-white transition-colors duration-300 sm:flex'
+              }`}
+              disabled={currentPage === index + 1}
+            >
               {index + 1}
-
             </button>
-          </Link>
-        ))}
-      </div>
-
-      <Link href={'#startCatalogy'}>
+          ))}
+        </div>
+  
         <button
           onClick={() => handleShowMore('Próximo')}
           className={`flex items-center px-4 py-2 mx-1 bg-primary text-white transition-colors duration-300 rounded-md  ${
             currentPage === totalPages ? 'cursor-not-allowed ' : 'hover:bg-secondary'
           }`}
+          disabled={currentPage === totalPages}
         >
           Próximo
-
         </button>
-      </Link>
-    </section>
-  );
-};
+      </section>
+    );
+  };
+  
 
 export default Pagination;
