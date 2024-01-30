@@ -2,6 +2,7 @@
 import React, { Dispatch, SetStateAction, useState, useEffect } from 'react'; 
 import { IoSearch } from "react-icons/io5";
 import { LuArrowDownUp, LuFilter } from 'react-icons/lu';
+import useFilter from '@/app/hook/useFilter';
 
 import dataProducts from '../../../../public/assets/data/produtos.json';
 
@@ -15,8 +16,13 @@ const Filter: React.FC<FilterProps> = ({  setPageNumber, setDisplayedProducts })
   const [spin, setSpin] = useState(false);
   const [isOrderByOpen, setIsOrderByOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [sortOption, setSortOption] = useState<string>('default');
 
+  const { handleMenuItemClick, sortOption } = useFilter({
+    setPageNumber,
+    setDisplayedProducts,
+    setIsOrderByOpen,
+    setIsFilterOpen,
+  });
 
   const handleSearchSubmit = () => {
     // Lógica para o envio do formulário, TODO
@@ -36,65 +42,7 @@ const Filter: React.FC<FilterProps> = ({  setPageNumber, setDisplayedProducts })
     setIsFilterOpen(false);
   };
 
-  const handleMenuItemClick = (item: string) => {
-
-    setPageNumber(1);
-
-    setSortOption((prevSortOption) => {
-      if (prevSortOption !== item) {
-
-        setTimeout(() => {
-          //handleSearchSubmit();
-          closeDropdowns();
-        }, 0);
-      }
-  
-      return item;
-    });
-  };
-
- useEffect(() => {
-    let filteredProducts = [...dataProducts];
-    let resultedFilteredProducts = [...filteredProducts]; // Inicialmente, mantenha todos os produtos
-  
-    // Apply filter based on the selected type
-    if (sortOption === 'Bolos Tradicionais') {
-      console.log('Filtering by Bolos Tradicionais');
-      resultedFilteredProducts = filteredProducts.filter(product => product.type === 'Bolos Tradicionais');
-    } else if (sortOption === 'Bolos de Aniversário') {
-      console.log('Filtering by Bolos de Aniversário');
-      resultedFilteredProducts = filteredProducts.filter(product => product.type === 'Bolos de Aniversário');
-    } else if (sortOption === 'Confeitaria') {
-      console.log('Filtering by Confeitaria');
-      resultedFilteredProducts = filteredProducts.filter(product => product.type === 'Confeitaria');
-    } else if (sortOption === 'Doces de Festa') {
-      console.log('Filtering by Doces de Festa');
-      resultedFilteredProducts = filteredProducts.filter(product => product.type === 'Doces de Festa');
-    } else if (sortOption === 'Salgados') {
-      console.log('Filtering by Salgados');
-      resultedFilteredProducts = filteredProducts.filter(product => product.type === 'Salgados');
-    } else if (sortOption === 'Tortas Salgadas') {
-      console.log('Filtering by Tortas Salgadas');
-      resultedFilteredProducts = filteredProducts.filter(product => product.type === 'Tortas Salgadas');
-    }
-  
-    // Apply sorting based on the selected sorting option
-    if (sortOption === 'Menor Preço') {
-      console.log('Sorting by Menor Preço');
-      resultedFilteredProducts.sort((a, b) => a.cost - b.cost);
-    } else if (sortOption === 'Maior Preço') {
-      console.log('Sorting by Maior Preço');
-      resultedFilteredProducts.sort((a, b) => b.cost - a.cost);
-    } else if (sortOption === 'Ordem Alphabética') {
-      console.log('Sorting by Ordem Alphabética');
-      resultedFilteredProducts.sort((a, b) => a.name.localeCompare(b.name));
-    }
-  
-    setDisplayedProducts(resultedFilteredProducts);
-  }, [sortOption, setDisplayedProducts]);
-  
-  
-
+ 
   return (
     <div className='flex flex-col md:flex-row p-4 mt-10 gap-5 md:gap-10'>
     <div className='flex flex-row'>

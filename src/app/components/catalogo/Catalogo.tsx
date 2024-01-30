@@ -6,12 +6,22 @@ import { useState } from 'react';
 import dataProducts from '../../../../public/assets/data/produtos.json';
 import Pagination from '@/app/components/pagination/Pagination';
 import Filter from '@/app/components/filter/Filter';
+import useFilter from '@/app/hook/useFilter';
 
 
 const Catalogo = () => {
   const [currentPage, setPageNumber] = useState(1);
   const [paginationRange, setPaginationRange] = useState({ startIndex: 0, endIndex: 6 });
   const [displayedProducts, setDisplayedProducts] = useState([...dataProducts]);
+  const [isOrderByOpen, setIsOrderByOpen] = useState(false); // Add this line
+  const [isFilterOpen, setIsFilterOpen] = useState(false); // Add this line
+
+  const { handleMenuItemClick, sortOption } = useFilter({
+    setPageNumber,
+    setDisplayedProducts,
+    setIsOrderByOpen, // Add this line
+    setIsFilterOpen, // Add this line
+  });
  
 
   return (
@@ -22,28 +32,28 @@ const Catalogo = () => {
       />
       <div className='flex flex-row  items-start '>
         <aside className='hidden md:flex flex-col gap-6 p-10 pt-28 md:pt-5 font-lily-script text-2xl text-footer/80 border w-1/5 md:w-1/3 lg:w-1/5'>
-        <button  className='border-b-2 border-secondary border-dashed pb-3 text-center '>
+        <button onClick={() => handleMenuItemClick('Bolos Tradicionais')} className='border-b-2 border-secondary border-dashed pb-3 text-center '>
             <h3 className='translate-y-0 hover:-translate-y-2 transition-transform duration-700'>Bolos Tradicionais</h3>
           </button>
-          <button className='border-b-2 border-secondary border-dashed pb-3 text-center '>
+          <button onClick={() => handleMenuItemClick('Bolos de Aniversário')} className='border-b-2 border-secondary border-dashed pb-3 text-center '>
             <h3 className='translate-y-0 hover:-translate-y-2 transition-transform duration-700'>Bolos de Aniversário</h3>
           </button>
-          <button className='border-b-2 border-secondary border-dashed pb-3 text-center '>
+          <button onClick={() => handleMenuItemClick('Confeitaria')} className='border-b-2 border-secondary border-dashed pb-3 text-center '>
             <h3 className='translate-y-0 hover:-translate-y-2 transition-transform duration-700'>Confeitaria</h3>
           </button>
-          <button className='border-b-2 border-secondary border-dashed pb-3 text-center '>
+          <button onClick={() => handleMenuItemClick('Doces de Festa')} className='border-b-2 border-secondary border-dashed pb-3 text-center '>
             <h3 className='translate-y-0 hover:-translate-y-2 transition-transform duration-700'>Doce de Festas</h3>
           </button>
-          <button className='border-b-2 border-secondary border-dashed pb-3 text-center '>
+          <button onClick={() => handleMenuItemClick('Salgados')} className='border-b-2 border-secondary border-dashed pb-3 text-center '>
             <h3 className='translate-y-0 hover:-translate-y-2 transition-transform duration-700'>Salgados</h3>
           </button>
-          <button className='border-b-2 border-secondary border-dashed pb-3 text-center '>
+          <button onClick={() => handleMenuItemClick('Tortas Salgadas')} className='border-b-2 border-secondary border-dashed pb-3 text-center '>
             <h3 className='translate-y-0 hover:-translate-y-2 transition-transform duration-700'>Salgados de Festa</h3>
           </button>
-          <button className='border-b-2 border-secondary border-dashed pb-3 text-center '>
+          <button onClick={() => handleMenuItemClick('Bolos Tradicionais')} className='border-b-2 border-secondary border-dashed pb-3 text-center '>
             <h3 className='translate-y-0 hover:-translate-y-2 transition-transform duration-700'>Tortas Salgadas</h3>
           </button>
-          <button className='border-b-2 border-secondary border-dashed pb-3 text-center '>
+          <button onClick={() => handleMenuItemClick('Bolos Tradicionais')} className='border-b-2 border-secondary border-dashed pb-3 text-center '>
            <h3 className='translate-y-0 hover:-translate-y-2 transition-transform duration-700'>Kits</h3>
           </button>
         </aside>
