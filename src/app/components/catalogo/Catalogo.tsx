@@ -7,6 +7,7 @@ import dataProducts from '../../../../public/assets/data/produtos.json';
 import Pagination from '@/app/components/pagination/Pagination';
 import Filter from '@/app/components/filter/Filter';
 import useFilter from '@/app/hook/useFilter';
+import { useEffect } from 'react';
 
 
 const Catalogo = () => {
@@ -22,6 +23,18 @@ const Catalogo = () => {
     setIsOrderByOpen, // Add this line
     setIsFilterOpen, // Add this line
   });
+
+  useEffect(() => {
+    // Extract type from query parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const productType = urlParams.get('type');
+  
+    // Filter products based on type
+    if (productType) {
+      const filteredProducts = dataProducts.filter(product => product.type === productType);
+      setDisplayedProducts(filteredProducts);
+    }
+  }, [setDisplayedProducts]);
  
 
   return (
