@@ -7,11 +7,22 @@ interface UseFilterProps {
 }
 
 const useFilter = ({ setPageNumber, setDisplayedProducts }: UseFilterProps) => {
+  const [filterOption, setFilterOption] = useState<string>('default');
   const [sortOption, setSortOption] = useState<string>('default');
 
   const handleMenuItemClick = (item: string) => {
     setPageNumber(1);
-    setSortOption(item);
+
+    if (item === 'Ver Todos') {
+      setFilterOption('default');
+      setSortOption('default');
+    } else if (item.startsWith('Menor Preço') || item.startsWith('Maior Preço') || item.startsWith('Ordem Alphabética')) {
+      setSortOption(item);
+      // Não resetar o filtro quando aplicar a ordenação
+    } else {
+      setFilterOption(item);
+      setSortOption('default'); // Resetar a opção de ordenação quando aplicar um filtro
+    }
   };
 
   useEffect(() => {
@@ -32,20 +43,18 @@ const useFilter = ({ setPageNumber, setDisplayedProducts }: UseFilterProps) => {
       'Ordem Alphabética': (a, b) => a.name.localeCompare(b.name),
     };
 
-    let resultedFilteredProducts = [...dataProducts];
+    let filteredProducts = [...dataProducts];
 
-    if (filterFunctions[sortOption]) {
-      //console.log(`Filtering by ${sortOption}`);
-      resultedFilteredProducts = resultedFilteredProducts.filter(filterFunctions[sortOption]);
+    if (filterFunctions[filterOption]) {
+      filteredProducts = filteredProducts.filter(filterFunctions[filterOption]);
     }
 
     if (sortingFunctions[sortOption]) {
-      //console.log(`Sorting by ${sortOption}`);
-      resultedFilteredProducts.sort(sortingFunctions[sortOption]);
+      filteredProducts.sort(sortingFunctions[sortOption]);
     }
 
-    setDisplayedProducts(resultedFilteredProducts);
-  }, [sortOption, setDisplayedProducts, setPageNumber]);
+    setDisplayedProducts(filteredProducts);
+  }, [filterOption, sortOption, setDisplayedProducts, setPageNumber]);
 
   return {
     handleMenuItemClick,
@@ -54,3 +63,5 @@ const useFilter = ({ setPageNumber, setDisplayedProducts }: UseFilterProps) => {
 };
 
 export default useFilter;
+
+

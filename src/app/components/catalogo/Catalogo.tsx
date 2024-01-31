@@ -15,6 +15,7 @@ const Catalogo = () => {
   const [paginationRange, setPaginationRange] = useState({ startIndex: 0, endIndex: 6 });
   const [displayedProducts, setDisplayedProducts] = useState([...dataProducts]);
 
+  // Movendo a chamada do useFilter para fora do componente
   const { handleMenuItemClick, sortOption } = useFilter({
     setPageNumber,
     setDisplayedProducts,
@@ -41,6 +42,9 @@ const Catalogo = () => {
       />
       <div className='flex flex-row  items-start '>
         <aside className='hidden md:flex flex-col gap-6 p-10 pt-28 md:pt-5 font-lily-script text-2xl text-footer/80 border w-1/5 md:w-1/3 lg:w-1/5'>
+        <button onClick={() => handleMenuItemClick('Ver Todos')} className='border-b-2 border-secondary border-dashed pb-3 text-center '>
+            <h3 className='translate-y-0 hover:-translate-y-2 transition-transform duration-700'>Ver Todos</h3>
+          </button>
         <button onClick={() => handleMenuItemClick('Bolos Tradicionais')} className='border-b-2 border-secondary border-dashed pb-3 text-center '>
             <h3 className='translate-y-0 hover:-translate-y-2 transition-transform duration-700'>Bolos Tradicionais</h3>
           </button>
