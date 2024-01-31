@@ -12,7 +12,7 @@ interface FilterProps {
   setDisplayedProducts: Dispatch<SetStateAction<any[]>>;
 }
 
-const Filter: React.FC<FilterProps> = ({  setPageNumber, setDisplayedProducts }) => {
+const Filter: React.FC<FilterProps> = ({ setPageNumber, setDisplayedProducts }) => {
   const [spin, setSpin] = useState(false);
   const [isOrderByOpen, setIsOrderByOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -20,8 +20,6 @@ const Filter: React.FC<FilterProps> = ({  setPageNumber, setDisplayedProducts })
   const { handleMenuItemClick, sortOption } = useFilter({
     setPageNumber,
     setDisplayedProducts,
-    setIsOrderByOpen,
-    setIsFilterOpen,
   });
 
   const handleSearchSubmit = () => {
@@ -41,6 +39,7 @@ const Filter: React.FC<FilterProps> = ({  setPageNumber, setDisplayedProducts })
     setIsOrderByOpen(false);
     setIsFilterOpen(false);
   };
+
 
  
   return (

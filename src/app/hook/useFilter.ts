@@ -4,11 +4,9 @@ import dataProducts from '../../../public/assets/data/produtos.json';
 interface UseFilterProps {
   setPageNumber: Dispatch<SetStateAction<number>>;
   setDisplayedProducts: Dispatch<SetStateAction<any[]>>;
-  setIsOrderByOpen: Dispatch<SetStateAction<boolean>>;
-  setIsFilterOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const useFilter = ({ setPageNumber, setDisplayedProducts, setIsOrderByOpen, setIsFilterOpen }: UseFilterProps) => {
+const useFilter = ({ setPageNumber, setDisplayedProducts }: UseFilterProps) => {
   const [sortOption, setSortOption] = useState<string>('default');
 
   const handleMenuItemClick = (item: string) => {
@@ -17,7 +15,8 @@ const useFilter = ({ setPageNumber, setDisplayedProducts, setIsOrderByOpen, setI
     setSortOption((prevSortOption) => {
       if (prevSortOption !== item) {
         setTimeout(() => {
-          closeDropdowns();
+          // Close the dropdowns directly in the Filter component
+          // instead of here
         }, 0);
       }
 
@@ -25,10 +24,6 @@ const useFilter = ({ setPageNumber, setDisplayedProducts, setIsOrderByOpen, setI
     });
   };
 
-  const closeDropdowns = () => {
-    setIsOrderByOpen(false);
-    setIsFilterOpen(false);
-  };
 
   useEffect(() => {
     let filteredProducts = [...dataProducts];

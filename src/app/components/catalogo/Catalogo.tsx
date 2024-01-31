@@ -14,14 +14,10 @@ const Catalogo = () => {
   const [currentPage, setPageNumber] = useState(1);
   const [paginationRange, setPaginationRange] = useState({ startIndex: 0, endIndex: 6 });
   const [displayedProducts, setDisplayedProducts] = useState([...dataProducts]);
-  const [isOrderByOpen, setIsOrderByOpen] = useState(false); // Add this line
-  const [isFilterOpen, setIsFilterOpen] = useState(false); // Add this line
 
   const { handleMenuItemClick, sortOption } = useFilter({
     setPageNumber,
     setDisplayedProducts,
-    setIsOrderByOpen, // Add this line
-    setIsFilterOpen, // Add this line
   });
 
   useEffect(() => {
