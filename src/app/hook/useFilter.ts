@@ -63,5 +63,3 @@ const useFilter = ({ setPageNumber, setDisplayedProducts }: UseFilterProps) => {
 };
 
 export default useFilter;
-
-

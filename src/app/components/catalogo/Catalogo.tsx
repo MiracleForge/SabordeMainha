@@ -81,7 +81,12 @@ const Catalogo = () => {
                     className='w-full  px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl bg-white border-2 border-secondary rounded-3xl hover:bg-secondary hover:border-white group group'
                   >
                     <div className='w-full border-secondary p-5 md:p-10 text-center'>
-                      <Link href={'/errors/Error404'} >
+                    <Link
+                      href={{
+                        pathname: '/products',
+                        query: { id: data.id },
+                      }}
+                      as={`/products?id=${data.id}-${encodeURIComponent(data.name)}`}>
                         <figure className='flex flex-col gap-2 justify-center items-center text-center'>
                           <Image
                             src={data.image}
