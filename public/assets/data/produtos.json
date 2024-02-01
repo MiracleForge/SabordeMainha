@@ -7,6 +7,10 @@
         "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,geralmente feito de coco relado e leite moça",
         "type": "Doces de Festa",
         "cost": 3.20,
+        "filing": [
+            "Frango",
+            "Camarão"
+          ],
         "visualization": 1
     },
     {
@@ -17,6 +21,10 @@
         "image_alt": "A imagem mostra um prato branco contendo um salgado conhecido como coxinha e um cuba no centro contendo um molho branco",
         "type": "Salgados",
         "cost": 9.99,
+        "filing": [
+            "Frango",
+            "Camarão"
+          ],
         "visualization": 2
         
     },
@@ -28,6 +36,9 @@
         "image_alt": "A imagem mostra um pano preto contendo três pasteis de belém, comida tipica portuguesa.",
         "type": "Confeitaria",
         "cost": 35.00,
+        "filing": [
+            
+          ],
         "visualization": 0
         
     },
@@ -39,6 +50,10 @@
         "image_alt": "A imagem mostra uma mesa com uma toalha azul, e em cima uma prato contendo várias salgados conhecidos como Boliviano",
         "type": "Salgados",
         "cost": 3.30,
+        "filing": [
+            "Frango",
+            "Camarão"
+          ],
         "visualization": 2
         
     },
@@ -50,6 +65,10 @@
         "image_alt": "A imagem um pano quadriculado com um prato branco  contando algumas empadas e uma jarra de suco",
         "type": "Salgados",
         "cost": 3.30,
+        "filing": [
+            "Frango",
+            "Camarão"
+          ],
         "visualization": 0
         
     },
@@ -61,6 +80,10 @@
         "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
         "type": "Salgados",
         "cost": 25.00,
+        "filing": [
+            "Frango",
+            "Camarão"
+          ],
         "visualization": 3
         
     },
@@ -72,6 +95,10 @@
         "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
         "type": "Salgados",
         "cost": 18.00,
+        "filing": [
+            "Frango",
+            "Camarão"
+          ],
         "visualization": 5
         
     },
@@ -83,6 +110,10 @@
         "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
         "type": "Salgados de Festa",
         "cost": 35.00,
+        "filing": [
+            "Frango",
+            "Camarão"
+          ],
         "visualization": 1
     },
     {
@@ -93,6 +124,10 @@
         "image_alt": "A imagem mostra uma torta com cobertura de brigadeiro e noses moidas em cima",
         "type": "Bolos Tradicionais",
         "cost": 119.00,
+        "filing": [
+            "Frango",
+            "Camarão"
+          ],
         "visualization": 1
     }
 ]

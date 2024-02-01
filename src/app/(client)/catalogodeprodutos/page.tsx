@@ -13,7 +13,7 @@ const Catalogo = () => {
 
   return (
 
-    <main className="bg-quartenary">
+    <main className="bg-quartenary ">
       <Ribbon ribbonText="Catálogo" altText="Catalogo de Produtos" />
 
       <Catalogos />
