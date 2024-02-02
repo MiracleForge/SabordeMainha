@@ -11,7 +11,13 @@
             "Frango",
             "Camarão"
           ],
-        "visualization": 1
+        "visualization": 1,
+        "extras": [
+          "Contém Glutem",
+          "Contém Leite ou seus derivados",
+          "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
+          "Imagens Ilustrativas"
+        ]
     },
     {
         "id": 2,
@@ -25,7 +31,13 @@
             "Frango",
             "Camarão"
           ],
-        "visualization": 2
+        "visualization": 2,
+        "extras": [
+          "Contém Glutem",
+          "Contém Leite ou seus derivados",
+          "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
+          "Imagens Ilustrativas"
+        ]
         
     },
     {
@@ -39,7 +51,13 @@
         "filing": [
             
           ],
-        "visualization": 0
+        "visualization": 0,
+        "extras": [
+          "Contém Glutem",
+          "Contém Leite ou seus derivados",
+          "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
+          "Imagens Ilustrativas"
+        ]
         
     },
     {
@@ -54,7 +72,13 @@
             "Frango",
             "Camarão"
           ],
-        "visualization": 2
+        "visualization": 2,
+        "extras": [
+          "Contém Glutem",
+          "Contém Leite ou seus derivados",
+          "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
+          "Imagens Ilustrativas"
+        ]
         
     },
     {
@@ -69,7 +93,13 @@
             "Frango",
             "Camarão"
           ],
-        "visualization": 0
+        "visualization": 0,
+        "extras": [
+          "Contém Glutem",
+          "Contém Leite ou seus derivados",
+          "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
+          "Imagens Ilustrativas"
+        ]
         
     },
     {
@@ -84,7 +114,13 @@
             "Frango",
             "Camarão"
           ],
-        "visualization": 3
+        "visualization": 3,
+        "extras": [
+          "Contém Glutem",
+          "Contém Leite ou seus derivados",
+          "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
+          "Imagens Ilustrativas"
+        ]
         
     },
     {
@@ -99,7 +135,13 @@
             "Frango",
             "Camarão"
           ],
-        "visualization": 5
+        "visualization": 5,
+        "extras": [
+          "Contém Glutem",
+          "Contém Leite ou seus derivados",
+          "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
+          "Imagens Ilustrativas"
+        ]
         
     },
     {
@@ -114,7 +156,13 @@
             "Frango",
             "Camarão"
           ],
-        "visualization": 1
+        "visualization": 1,
+        "extras": [
+          "Contém Glutem",
+          "Contém Leite ou seus derivados",
+          "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
+          "Imagens Ilustrativas"
+        ]
     },
     {
         "id": 11,
@@ -128,6 +176,12 @@
             "Frango",
             "Camarão"
           ],
-        "visualization": 1
+        "visualization": 1,
+        "extras": [
+          "Contém Glutem",
+          "Contém Leite ou seus derivados",
+          "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
+          "Imagens Ilustrativas"
+        ]
     }
 ]

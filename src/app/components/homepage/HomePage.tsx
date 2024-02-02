@@ -69,7 +69,12 @@ const HomePage = () => {
                         className='bg-white  px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl group border-2 border-secondary rounded-3xl hover:bg-secondary hover:border-white group'
                       >
                         <div className='w-full  p-5 md:p-8 text-center'>
-                          <Link href={'/errors/Error404'} >
+                        <Link
+                        href={{
+                          pathname: '/products',
+                          query: { id: data.id },
+                        }}
+                        as={`/products?id=${data.id}-${encodeURIComponent(data.name)}`}>
                             <figure className='flex flex-col gap-2 justify-center items-center text-center  '>
                               <Image
                                 src={data.image}

@@ -1,13 +1,16 @@
 "use client"
-"use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import dataProducts from '../../../../public/assets/data/produtos.json';
 import { TiPlus } from "react-icons/ti";
 import { FaMinus } from "react-icons/fa6";
+import Toldo from '../../../../public/assets/images/img__toldo.png';
+
+type ButtonName = "descricao" | "avaliacoes";
 
 const ProductDetails = () => {
+
   const [displayedProduct, setDisplayedProduct] = useState<{
     id: number;
     name: string;
@@ -17,11 +20,13 @@ const ProductDetails = () => {
     type: string;
     cost: number;
     filing?: string[];
+    extras?: string[];
     visualization: number;
   } | null>(null);
 
   const [selectedFlavors, setSelectedFlavors] = useState<string[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [activeButton, setActiveButton] = useState("descricao"); 
 
   useEffect(() => {
     // Extrair o id dos parâmetros de consulta e converter para número
@@ -45,20 +50,26 @@ const ProductDetails = () => {
     }
   };
 
+  const handleButtonClick = (buttonName: ButtonName) => {
+    setActiveButton(buttonName);
+  
+  };
+
   return (
-    <main>
+    <main >
       {displayedProduct ? (
-        <div className="flex flex-row">
-          <figure className="w-1/2 flex flex-col h-auto p-12">
+        <>
+        <section className="flex flex-row ">
+          <figure className="w-1/2 flex flex-col h-auto p-12 pb-0">
             <Image
               src={displayedProduct.image}
               alt={displayedProduct.image_alt}
               width={500}
               height={500}
-              className='w-full h-[32rem] object-cover rounded-lg border-4 border-secondary'
+              className='w-full  h-[32rem] object-cover rounded-lg border-4 border-secondary'
             />
             <div className="flex flex-row justify-start items-center mt-5 border-2 border-white rounded-lg w-[28.09rem]">
-              <h1 className="flex text-3xl font-lily-script text-black  px-4 ">Sabores</h1>
+              <h1 className="flex text-3xl font-lily-script text-black  px-4">Sabores</h1>
               <div className="relative inline-block">
                 <button
                   onClick={() => setIsOpen(!isOpen)}
@@ -68,13 +79,13 @@ const ProductDetails = () => {
                 </button>
                 {isOpen && (
                   <div
-                    className="absolute right-0 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-md shadow-xl dark:bg-gray-800"
+                    className="absolute right-0 z-20 w-80 py-2 px-3 mt-2 origin-top-right bg-primary rounded-md shadow-xl "
                     onClick={() => setIsOpen(false)}
                   >
                     {displayedProduct.filing && displayedProduct.filing.length > 0 ? (
                       displayedProduct.filing.map((flavor, index) => (
-                        <div key={index} className="flex items-center mt-2">
-                          <div className="w-full text-lg">{flavor}</div>
+                        <div key={index} className="flex items-center mt-2 hover:bg-secondary">
+                          <div className="w-full text-2xl text-center">{flavor}</div>
                         </div>
                       ))
                     ) : (
@@ -91,7 +102,16 @@ const ProductDetails = () => {
               /
               <Link className="hover:underline" href={"/catalogodeprodutos"}>Catálogo</Link>
               /
-              <Link className="hover:underline" href={"/catalogodeprodutos"}>{displayedProduct.name}</Link>
+              <Link
+              href={{
+                pathname: '/catalogodeprodutos',
+                query: { type: displayedProduct.type },
+              }}
+              as={`/catalogodeprodutos?type=${displayedProduct.type}`}
+              className="hover:underline"
+            >
+              {displayedProduct.type}
+            </Link>
             </div>
 
             <div className="text-footer ">
@@ -117,8 +137,62 @@ const ProductDetails = () => {
             </div>
 
             <button className="text-3xl font-lily-script text-white py-3 px-8 bg-fontColor2 rounded-lg mt-4 hover:bg-secondary"> Adicionar </button>
+
           </div>
-        </div>
+         </section>
+
+         <section className="flex flex-col w-full h-auto p-12 pt-0 border-t-2 border-linebaseColor bg-quartenary">
+          <div className="flex flex-row gap-6">
+            <button
+              className={`flex text-lg pt-1 border-t-2 font-lily-script ${activeButton === "descricao" ? "border-footer" : ""}`}
+              onClick={() => handleButtonClick("descricao")}
+            >
+              Descrição:
+            </button>
+            <button
+              className={`flex text-lg pt-1 border-t-2 font-lily-script ${activeButton === "avaliacoes" ? "border-footer" : ""}`}
+              onClick={() => handleButtonClick("avaliacoes")}
+            >
+              Avaliações:
+            </button>
+          </div>
+
+          {activeButton === "descricao" && (
+            <div className="flex flex-row items-center">
+              <div className="flex flex-col mr-auto">
+                <h3 className="text-3xl text-footer pt-3 font-lily-script">{displayedProduct.name}</h3>
+                <p className="max-w-sm text-lg pt-1 font-montserrat"><strong>Descrição: </strong>{displayedProduct.description}</p>
+              </div>
+
+              <div className="flex flex-col ml-auto font-montserrat w-72">
+              <ul className="space-y-3 list-inside pl-4">
+                {displayedProduct.extras && displayedProduct.extras.length > 0 ? (
+                  displayedProduct.extras.map((extra, index) => (
+                    <li key={index}>
+                      {extra}
+                    </li>
+                  ))
+                ) : (
+                  <p>Sem extras disponíveis.</p>
+                )}
+              </ul>
+
+              </div>
+
+            </div>
+          )}
+        </section>
+
+        <section>
+        <div className="w-full sm:w-full h-auto border-b-[.3rem]  md:border-b-[.5rem] lg:border-b-[.5rem] pt-1 bg-primary border-secondary relative z-10  border-t-4 border-t-linebaseColor pt-2"></div>
+    <Image
+      src={Toldo}
+      alt="Toldo Nav Figure"
+      className="absolute w-full  -mt-2 md:-mt-2 lg:-mt-3 xl:-mt-5 z-0"
+    />
+        </section>
+
+        </>
       ) : (
         <div>Produto não encontrado.</div>
       )}
