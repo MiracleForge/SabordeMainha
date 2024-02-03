@@ -10,13 +10,13 @@ import dataProducts from '../../../../public/assets/data/produtos.json';
  * @component
  * @example
  * // Exemplo de uso com filtro por tipo e nome do produto
- * <SimpleCatalog numberOfItems={4} filteredType="type" customTypeFilter="Seu_Tipo_Aqui" productName="Nome_Do_Produto_Aqui" />
+ * <SimpleCatalog numberOfItems={4} filteredType="type" customTypeFilter="Seu_Tipo_Aqui" excludeProductName="Nome_Do_Produto_Aqui" />
  *
  * @param {Object} props - As propriedades do componente.
  * @param {number} props.numberOfItems - O número de itens a serem exibidos.
  * @param {'visualization' | 'type'} props.filteredType - O tipo de filtro a ser aplicado ('visualization' ou 'type').
  * @param {string} [props.customTypeFilter] - Filtro personalizado para o tipo (opcional , obrigatório se customTypeFilter for fornecido).
- * @param {string} [props.productName] - Nome do produto a ser excluído (opcional, obrigatório se customTypeFilter for fornecido).
+ * @param {string} [props.excludeProductName] - Nome do produto a ser excluído (opcional, obrigatório se customTypeFilter for fornecido).
  * @returns {JSX.Element} Componente de catálogo simples.
  */
 
@@ -24,17 +24,17 @@ interface CatalogProps {
   numberOfItems: number;
   filteredType: 'visualization' | 'type';
   customTypeFilter?: string;
-  productName?: string; 
+  excludeProductName?: string; 
 }
 
-const SimpleCatalog: React.FC<CatalogProps> = ({ numberOfItems, filteredType, customTypeFilter, productName }) => {
+const SimpleCatalog: React.FC<CatalogProps> = ({ numberOfItems, filteredType, customTypeFilter, excludeProductName }) => {
   const filteredData = dataProducts
     .filter((data) => {
       if (filteredType === 'visualization') {
         return true;
       } else if (filteredType === 'type' && customTypeFilter) {
         // Inclui a condição para verificar se o tipo e o nome correspondem
-        return data.type === customTypeFilter && (productName ? data.name !== productName : true);
+        return data.type === customTypeFilter && (excludeProductName ? data.name !== excludeProductName : true);
       }
       return false;
     })
@@ -64,7 +64,7 @@ const SimpleCatalog: React.FC<CatalogProps> = ({ numberOfItems, filteredType, cu
                   alt={data.image_alt}
                   className='w-full h-60 object-cover rounded-t-lg'
                 />
-                <small className='text-3xl font-bold text-footer mt-6 group-hover:text-white'>{data.name}</small>
+                <small className='text-3xl font-bold text-footer mt-6 group-hover:text-white'>{data.name} - {data.min} unidades</small>
                 <p className='text-lg text-footer font-montserrat'>{data.description}</p>
                 <p className='text-2xl font-semibold text-footer'> R$ {data.cost.toFixed(2)}</p>
               </figure>

@@ -23,22 +23,44 @@ const ProductDetails = () => {
     cost: number;
     filing?: string[];
     extras?: string[];
+    min: number;
     visualization: number;
   } | null>(null);
 
+  const [quantity, setQuantity] = useState(1);
   const [selectedFlavors, setSelectedFlavors] = useState<string[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [activeButton, setActiveButton] = useState("descricao"); 
+
+  const incrementQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
+
+  const decrementQuantity = () => {
+
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+
+  const handleAddButtonClick = () => {
+
+  console.log('Quantidade selecionada:', (quantity * (displayedProduct?.min || 1)));
+
+  };
 
   useEffect(() => {
     // Extrair o id dos parâmetros de consulta e converter para número
     const urlParams = new URLSearchParams(window.location.search);
     const productIdString = urlParams.get('id');
     const productId = productIdString ? parseInt(productIdString, 10) : null;
-
+  
     // Encontrar o produto com base no id
     if (productId !== null) {
       const product = dataProducts.find(product => product.id === productId);
+      console.log('Produto encontrado:', product);
       setDisplayedProduct(product || null);
     }
   }, []);
@@ -119,26 +141,29 @@ const ProductDetails = () => {
             <div className="text-footer ">
               <h2 className="text-3xl pt-6 font-lily-script">{displayedProduct.name}</h2>
               <hr className="h-[3px] w-[5rem] my-3 border-0 bg-secondary" />
-              <p className="text-2xl pt-2 font-lily-script">R$ {displayedProduct.cost.toFixed(2)}</p>
+              <p className="text-2xl pt-2 font-lily-script">R$ {(displayedProduct.cost * Math.max(quantity, 1) * displayedProduct.min).toFixed(2)}
+
+
+</p>
               <p className="max-w-sm text-lg pt-6">{displayedProduct.description}</p>
               <p className="text-lg pt-6 font-lily-script">Categoria: {displayedProduct.type}</p>
             </div>
 
             <div className="flex flex-row items-center gap-6 mt-3">
               <div className="w-56 h-10 bg-white flex flex-row justify-between mt-1">
-                <button className="w-16 h-auto rounded-lg bg-fontColor2 text-center items-center flex justify-center hover:bg-secondary group">
+                <button onClick={decrementQuantity} className="w-16 h-auto rounded-lg bg-fontColor2 text-center items-center flex justify-center hover:bg-secondary group">
                   <FaMinus className="text-3xl group-hover:text-white" />
                 </button>
-                <small className="text-2xl font-lily-script self-center">1</small>
-                <button className="w-16 h-auto rounded-lg bg-fontColor2 text-center flex items-center justify-center hover:bg-secondary group">
+                <small className="text-2xl font-lily-script self-center">{quantity}</small>
+                <button onClick={incrementQuantity} className="w-16 h-auto rounded-lg bg-fontColor2 text-center flex items-center justify-center hover:bg-secondary group">
                   <TiPlus className="text-3xl group-hover:text-white" />
                 </button>
               </div>
 
-              <h2 className="flex items-center text-footer">Quantidade Mínima: 24</h2>
+              <h2 className="flex items-center text-footer">Quantidade Mínima: {displayedProduct.min}</h2>
             </div>
 
-            <button className="text-3xl font-lily-script text-white py-3 px-8 bg-fontColor2 rounded-lg mt-4 hover:bg-secondary"> Adicionar </button>
+            <button onClick={handleAddButtonClick} className="text-3xl font-lily-script text-white py-3 px-8 bg-fontColor2 rounded-lg mt-4 hover:bg-secondary"> Adicionar </button>
 
           </div>
          </section>
@@ -166,7 +191,7 @@ const ProductDetails = () => {
                 <p className="max-w-sm text-lg pt-1 font-montserrat"><strong>Descrição: </strong>{displayedProduct.description}</p>
               </div>
 
-              <div className="flex flex-col ml-auto font-montserrat w-72">
+              <div className="flex flex-col ml-auto font-montserrat w-80">
               <ul className="space-y-3 list-inside pl-4">
                 {displayedProduct.extras && displayedProduct.extras.length > 0 ? (
                   displayedProduct.extras.map((extra, index) => (
@@ -190,7 +215,8 @@ const ProductDetails = () => {
             <h3 className="text-3xl  font-lily-script text-footer pl-12 pt-16 pb-2">Relacionados :</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3    pb-12 md:px-10 gap-3 md:gap-10 lg:gap-20 font-lily-script ">
-              <SimpleCatalog numberOfItems={3} filteredType="type" customTypeFilter={displayedProduct.type} productName={displayedProduct.name}/>
+            <SimpleCatalog numberOfItems={3} filteredType="type" customTypeFilter={displayedProduct.type} excludeProductName={displayedProduct.name} />
+
             </div>
         </section>
 

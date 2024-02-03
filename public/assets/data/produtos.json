@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Beijinho/ un",
+        "name": "Beijinho",
         "description": "Doce tradicional feito à base de coco e leite condensado.",
         "image": "/assets/images/produtos/beijinho_id01.jpg",
         "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,geralmente feito de coco relado e leite moça",
@@ -17,7 +17,8 @@
           "Contém Leite ou seus derivados",
           "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
           "Imagens Ilustrativas"
-        ]
+        ],
+        "min": 15
     },
     {
         "id": 2,
@@ -26,7 +27,7 @@
         "image": "/assets/images/produtos/coxinha_id02.jpg",
         "image_alt": "A imagem mostra um prato branco contendo um salgado conhecido como coxinha e um cuba no centro contendo um molho branco",
         "type": "Salgados",
-        "cost": 9.99,
+        "cost": 3.35,
         "filing": [
             "Frango",
             "Camarão"
@@ -37,12 +38,13 @@
           "Contém Leite ou seus derivados",
           "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
           "Imagens Ilustrativas"
-        ]
+        ],
+        "min": 15
         
     },
     {
         "id": 3,
-        "name": "Pastel de Belém - 6 unidades",
+        "name": "Pastel de Belém",
         "description": "Iguaria portuguesa que combina uma crosta folhada delicadamente caramelizada com um recheio cremoso e aromático de creme de ovos.",
         "image": "/assets/images/produtos/pastel-belem_id03.jpg",
         "image_alt": "A imagem mostra um pano preto contendo três pasteis de belém, comida tipica portuguesa.",
@@ -57,12 +59,13 @@
           "Contém Leite ou seus derivados",
           "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
           "Imagens Ilustrativas"
-        ]
+        ],
+        "min": 15
         
     },
     {
         "id": 4,
-        "name": "Boliviano/ un",
+        "name": "Boliviano",
         "description": "Bolinho frito com recheio picante com massa de coxinha, carne ou frango, pimenta, uvas passas e um toque adocicado de açúcar com canela,",
         "image": "/assets/images/produtos/boliviano_id04.jpeg",
         "image_alt": "A imagem mostra uma mesa com uma toalha azul, e em cima uma prato contendo várias salgados conhecidos como Boliviano",
@@ -78,12 +81,13 @@
           "Contém Leite ou seus derivados",
           "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
           "Imagens Ilustrativas"
-        ]
+        ],
+        "min": 15
         
     },
     {
         "id": 5,
-        "name": "Empada/ un",
+        "name": "Empada",
         "description": "Fina massa que envolve um recheio suculento de frango, ou camarão, palmito ",
         "image": "/assets/images/produtos/empada_id05.jpeg",
         "image_alt": "A imagem um pano quadriculado com um prato branco  contando algumas empadas e uma jarra de suco",
@@ -99,12 +103,13 @@
           "Contém Leite ou seus derivados",
           "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
           "Imagens Ilustrativas"
-        ]
+        ],
+        "min": 15
         
     },
     {
         "id": 6,
-        "name": "Pão Delícia - 25 unidades",
+        "name": "Pão Delícia",
         "description": "O Pão Delícia possue uma massa levemente adocicada, e com recheios versáteis, resultando em uma textura macia e um sabor suave e agradável.",
         "image": "/assets/images/produtos/pao-delicia_id06.jpg",
         "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
@@ -120,12 +125,13 @@
           "Contém Leite ou seus derivados",
           "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
           "Imagens Ilustrativas"
-        ]
+        ],
+        "min": 15
         
     },
     {
         "id": 7,
-        "name": "Kibe - 10 unidades",
+        "name": "Kibe",
         "description": "Kibe 20 gramas, Sabor tradicional de carne temperada , ou com mussarela e requeijão",
         "image": "/assets/images/produtos/kibe_id07.jpg",
         "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
@@ -141,12 +147,13 @@
           "Contém Leite ou seus derivados",
           "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
           "Imagens Ilustrativas"
-        ]
+        ],
+        "min": 15
         
     },
     {
         "id": 10,
-        "name": "Bolinho de queijo - 20 unidades",
+        "name": "Bolinho de queijo",
         "description": "Bolinho de massa , com recheio de queijo mussarela ou camarão",
         "image": "/assets/images/produtos/bolinho-queijo_id10.jpg",
         "image_alt": "A imagem mostra um prato azul contendo alguns alguns doces tipicos brasileiros chamados de beijinho,  geralmente feito de coco relado e leite moça",
@@ -162,7 +169,8 @@
           "Contém Leite ou seus derivados",
           "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
           "Imagens Ilustrativas"
-        ]
+        ],
+        "min": 15
     },
     {
         "id": 11,
@@ -182,6 +190,7 @@
           "Contém Leite ou seus derivados",
           "Pode conter Traços de ovos ou castanhas ( não indicado para elérgicos )",
           "Imagens Ilustrativas"
-        ]
+        ],
+        "min": 15
     }
 ]

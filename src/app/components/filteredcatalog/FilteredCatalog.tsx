@@ -95,7 +95,7 @@ const FilteredCatalog = () => {
                             alt={data.image_alt}
                             className='w-full h-60 object-cover rounded-t-lg'
                           />
-                          <small className='text-3xl font-bold text-footer mt-6 group-hover:text-white'>{data.name}</small>
+                          <small className='text-3xl font-bold text-footer mt-6 group-hover:text-white'>{data.name} - {data.min} unidades</small>
                           <p className='text-lg text-footer font-montserrat'>{data.description}</p>
                           <p className='text-2xl font-semibold text-footer'> R$ {data.cost.toFixed(2)}</p>
                         </figure>
