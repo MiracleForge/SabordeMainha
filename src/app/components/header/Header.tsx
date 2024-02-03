@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from '../../../../public/assets/images/Logo.png';
 import toldo from '../../../../public/assets/images/img__toldo.png';
+import Toldo from "../toldo/Toldo";
 
 {/*React Icons*/}
 import { FiInstagram } from "react-icons/fi";
@@ -106,13 +107,7 @@ const Navigation = () => {
                 </div>
             
             </div >
-            <div className="w-full sm:w-full h-auto border-b-[.4rem]  md:border-b-[.5rem] lg:border-b-[.5rem] border-t-4 border-t-linebaseColor mt-1 py-[0.10rem] border-secondary relative z-10">     
-            </div>
-            <Image 
-                src={toldo} 
-                alt="Toldo Nav Figure"
-                className="absolute w-full -mt-1 md:-mt-2 lg:-mt-3 xl:-mt-5 z-0"
-            />
+            <Toldo/>
         </nav>
     );
 };

@@ -5,7 +5,7 @@ import Link from "next/link";
 import dataProducts from '../../../../public/assets/data/produtos.json';
 import { TiPlus } from "react-icons/ti";
 import { FaMinus } from "react-icons/fa6";
-import Toldo from '../../../../public/assets/images/img__toldo.png';
+import Toldo from "../toldo/Toldo";
 
 type ButtonName = "descricao" | "avaliacoes";
 
@@ -184,12 +184,7 @@ const ProductDetails = () => {
         </section>
 
         <section>
-        <div className="w-full sm:w-full h-auto border-b-[.3rem]  md:border-b-[.5rem] lg:border-b-[.5rem] pt-1 bg-primary border-secondary relative z-10  border-t-4 border-t-linebaseColor pt-2"></div>
-    <Image
-      src={Toldo}
-      alt="Toldo Nav Figure"
-      className="absolute w-full  -mt-2 md:-mt-2 lg:-mt-3 xl:-mt-5 z-0"
-    />
+            <Toldo/>
         </section>
 
         </>
