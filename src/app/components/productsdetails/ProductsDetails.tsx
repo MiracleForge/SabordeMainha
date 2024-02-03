@@ -6,6 +6,8 @@ import dataProducts from '../../../../public/assets/data/produtos.json';
 import { TiPlus } from "react-icons/ti";
 import { FaMinus } from "react-icons/fa6";
 import Toldo from "../toldo/Toldo";
+import SimpleCatalog from "../simplecatalog/SimpleCatalog";
+
 
 type ButtonName = "descricao" | "avaliacoes";
 
@@ -183,8 +185,13 @@ const ProductDetails = () => {
           )}
         </section>
 
-        <section>
-            <Toldo/>
+        <section className="w-full h-auto  bg-quartenary ">
+            <Toldo />
+            <h3 className="text-3xl  font-lily-script text-footer pl-12 pt-16 pb-2">Relacionados :</h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3    pb-12 md:px-10 gap-3 md:gap-10 lg:gap-20 font-lily-script ">
+              <SimpleCatalog numberOfItems={3} filteredType="type" customTypeFilter={displayedProduct.type} productName={displayedProduct.name}/>
+            </div>
         </section>
 
         </>

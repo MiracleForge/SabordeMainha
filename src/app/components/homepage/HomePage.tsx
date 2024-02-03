@@ -1,12 +1,10 @@
 import React from 'react'
 import Link from 'next/link';
-import Image from 'next/image';
-import { useState } from 'react';
 import { GiStairsCake } from "react-icons/gi";
 import { RiCake3Fill } from "react-icons/ri";
 import { FaBirthdayCake } from "react-icons/fa";
 import Ribbon from '@/app/components/ribbon/Ribbon';
-import dataProdutucs from '../../../../public/assets/data/produtos.json';
+import SimpleCatalog from '../simplecatalog/SimpleCatalog';
 
 const HomePage = () => {
 
@@ -56,43 +54,9 @@ const HomePage = () => {
         
           <section className='h-auto w-full bg-cookieMain bg-cookieMain-small md:bg-cookieMain-medium lg:bg-cookieMain-large mt-10 md:mt-20 mb-10 bg-repeat-space'>
             <Ribbon ribbonText="Mais Populares" altText="Mais Populares"/>
+            
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  p-5 md:p-10 gap-3 md:gap-10 lg:gap-20 font-lily-script'>
-            {
-              dataProdutucs &&
-                dataProdutucs
-                  .sort((a, b) => b.visualization - a.visualization)
-                  .slice(0, 6)
-                  .map((data) => {
-                    return (
-                      <div
-                        key={data.id}
-                        className='bg-white  px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl group border-2 border-secondary rounded-3xl hover:bg-secondary hover:border-white group'
-                      >
-                        <div className='w-full  p-5 md:p-8 text-center'>
-                        <Link
-                        href={{
-                          pathname: '/products',
-                          query: { id: data.id },
-                        }}
-                        as={`/products?id=${data.id}-${encodeURIComponent(data.name)}`}>
-                            <figure className='flex flex-col gap-2 justify-center items-center text-center  '>
-                              <Image
-                                src={data.image}
-                                width={500}
-                                height={500}
-                                alt={data.image_alt}
-                                className='w-full h-60 object-cover rounded-t-lg'
-                              />
-                              <small className='text-3xl font-bold text-footer mt-6 group-hover:text-white'>{data.name}</small>
-                              <p className='text-lg text-footer font-montserrat'>{data.description}</p>
-                              <p className='text-2xl font-semibold text-footer'> R$ {data.cost.toFixed(2)}</p>
-                            </figure>
-                          </Link>
-                         </div>
-                      </div>
-                    );
-                  })
-              }
+              <SimpleCatalog numberOfItems={6} filteredType='visualization'/>
             </div>
           </section>
     </>

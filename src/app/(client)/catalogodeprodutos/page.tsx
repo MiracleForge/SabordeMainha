@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Catalogos from '@/app/components/catalogo/Catalogo';
+import FilteredCatalog from '@/app/components/filteredcatalog/FilteredCatalog';
 import Ribbon from '@/app/components/ribbon/Ribbon';
 
 
@@ -16,7 +16,7 @@ const Catalogo = () => {
     <main className="bg-quartenary ">
       <Ribbon ribbonText="Catálogo" altText="Catalogo de Produtos" />
 
-      <Catalogos />
+      <FilteredCatalog />
     </main>
   );
 };

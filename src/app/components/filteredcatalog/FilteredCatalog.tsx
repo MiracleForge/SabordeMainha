@@ -10,7 +10,7 @@ import useFilter from '@/app/hook/useFilter';
 import { useEffect } from 'react';
 
 
-const Catalogo = () => {
+const FilteredCatalog = () => {
   const [currentPage, setPageNumber] = useState(1);
   const [paginationRange, setPaginationRange] = useState({ startIndex: 0, endIndex: 6 });
   const [displayedProducts, setDisplayedProducts] = useState([...dataProducts]);
@@ -118,4 +118,4 @@ const Catalogo = () => {
   );
 };
 
-export default Catalogo;
+export default FilteredCatalog;
