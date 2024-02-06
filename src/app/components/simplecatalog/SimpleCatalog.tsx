@@ -49,7 +49,7 @@ const SimpleCatalog: React.FC<CatalogProps> = ({ numberOfItems, filteredType, cu
           className='bg-white px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl group border-2 border-secondary rounded-3xl hover:bg-secondary hover:border-white group'
         >
           <div className='w-full p-5 md:p-8 text-center'>
-            <Link
+            <Link 
               href={{
                 pathname: '/products',
                 query: { id: data.id },

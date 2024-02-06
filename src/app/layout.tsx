@@ -31,7 +31,8 @@ export const metadata: Metadata = {
         height: 1108,
         alt: 'Imagem representativa da Sabor de Mainha'
       }
-    ]
+    ],
+
   }
 };
 

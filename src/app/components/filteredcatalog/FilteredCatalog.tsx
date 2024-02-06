@@ -78,9 +78,9 @@ const FilteredCatalog = () => {
                 
                   <div
                     key={data.id} 
-                    className='w-full  px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl bg-white border-2 border-secondary rounded-3xl hover:bg-secondary hover:border-white group group'
+                    className='w-full h-auto px-1 transition-all hover:transform hover:scale-105 duration-300 hover:shadow-xl bg-white border-2 border-secondary rounded-3xl hover:bg-secondary hover:border-white group group'
                   >
-                    <div className='w-full border-secondary p-5 md:p-10 text-center'>
+                    <div className='w-full h-auto border-secondary p-5 md:p-10 text-center'>
                     <Link
                       href={{
                         pathname: '/products',

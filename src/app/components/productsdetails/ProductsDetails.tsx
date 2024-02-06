@@ -7,6 +7,7 @@ import { TiPlus } from "react-icons/ti";
 import { FaMinus } from "react-icons/fa6";
 import Toldo from "../toldo/Toldo";
 import SimpleCatalog from "../simplecatalog/SimpleCatalog";
+import Head from 'next/head';
 
 
 type ButtonName = "descricao" | "avaliacoes";
@@ -51,6 +52,7 @@ const ProductDetails = () => {
 
   };
 
+
   useEffect(() => {
     // Extrair o id dos parâmetros de consulta e converter para número
     const urlParams = new URLSearchParams(window.location.search);
@@ -60,11 +62,75 @@ const ProductDetails = () => {
     // Encontrar o produto com base no id
     if (productId !== null) {
       const product = dataProducts.find(product => product.id === productId);
-      console.log('Produto encontrado:', product);
       setDisplayedProduct(product || null);
+  
+      if (product) {
+        {/*OPENGRAPH TAGS*/}
+        const openNameTag = document.querySelector('meta[property="og:title"]')
+        const twitterNameTag = document.querySelector('meta[name="twitter:title"]');
+        const twitterImageTag = document.querySelector('meta[name="twitter:image"]');
+        const twitterDescriptionTag = document.querySelector('meta[name="twitter:description"]');
+        const twitterAltTag = document.querySelector('meta[name="twitter:image:alt"]');
+        const openGraphTag = document.querySelector('meta[property="og:description"]');
+        const siteNameTag = document.querySelector('meta[property="og:site_name"]');
+        const imageTag = document.querySelector('meta[property="og:image"]');
+        const altTag = document.querySelector('meta[property="og:image:alt"]');
+        const urlTag = document.querySelector('meta[property="og:url"]');
+
+        const currentUrl = window.location.href; 
+        {/*Normal Tags*/}
+        const additionalString = "| Sabor de Mainha"; // Adicione a sua string adicional
+        document.title = `${product.type} ${product.name} - ${additionalString}`;
+        const productDescription = product.description || '';
+        const metaDescriptionTag = document.querySelector('meta[name="description"]');
+
+        const keywordsTag = ['Produtos', product.type, product.name];
+        const metaKeywords = document.querySelector('meta[name="keywords"]')
+        
+        if (metaDescriptionTag) {
+          metaDescriptionTag.setAttribute('content', `Sabor de Mainha - ${productDescription}`);
+        }
+        if (metaKeywords) {
+          metaKeywords.setAttribute('content', keywordsTag.join(', '));
+        }
+
+        if (siteNameTag) {
+          siteNameTag.setAttribute('content', `Sabor de Mainha - ${product.name}`);
+        }
+        
+        if (openNameTag) {
+            openNameTag.setAttribute('content', `${product.type} ${product.name} | Sabor de Mainha`)
+        }
+        if (twitterNameTag) {
+            twitterNameTag.setAttribute('content', `${product.type} ${product.name} | Sabor de Mainha`)
+        }
+        if (twitterDescriptionTag) {
+            twitterDescriptionTag.setAttribute('content', `${product.description}`)
+        }
+        if (twitterImageTag) {
+            twitterImageTag.setAttribute('content', `${product.image}`)
+        }
+        if (twitterAltTag) {
+            twitterAltTag.setAttribute('content', `${product.image_alt}`)
+        }
+        if (openGraphTag) {
+          openGraphTag.setAttribute('content', ` ${product.description}`);
+        }
+  
+        if (urlTag) {
+          urlTag.setAttribute('content', currentUrl);
+        }
+  
+        if (imageTag) {
+          imageTag.setAttribute('content', product.image);
+        }
+        if (altTag) {
+          altTag.setAttribute('content', product.image_alt);
+        }
+      }
     }
   }, []);
-
+  
   const handleFlavorToggle = (flavor: string) => {
     const isSelected = selectedFlavors.includes(flavor);
     if (isSelected) {
@@ -73,13 +139,19 @@ const ProductDetails = () => {
       setSelectedFlavors([...selectedFlavors, flavor]);
     }
   };
-
+  
   const handleButtonClick = (buttonName: ButtonName) => {
     setActiveButton(buttonName);
-  
   };
+  
 
   return (
+    <>
+      <Head>
+        {/* Set metadata for the product */}
+        <title>{displayedProduct?.name || 'Product Details'} - Sabor de Mainha</title>
+        {/* Add other metadata tags as needed (e.g., description, keywords, etc.) */}
+      </Head>
     <main >
       {displayedProduct ? (
         <>
@@ -225,6 +297,7 @@ const ProductDetails = () => {
         <div>Produto não encontrado.</div>
       )}
     </main>
+    </>
   );
 };
 

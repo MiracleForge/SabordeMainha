@@ -4,8 +4,6 @@ import { IoSearch } from "react-icons/io5";
 import { LuArrowDownUp, LuFilter } from 'react-icons/lu';
 import useFilter from '@/app/hook/useFilter';
 
-import dataProducts from '../../../../public/assets/data/produtos.json';
-
 interface FilterProps {
   setSortOption?: Dispatch<SetStateAction<string>>;
   setPageNumber: Dispatch<SetStateAction<number>>;
