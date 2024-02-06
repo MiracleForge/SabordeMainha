@@ -9,7 +9,6 @@ import Toldo from "../toldo/Toldo";
 import SimpleCatalog from "../simplecatalog/SimpleCatalog";
 import Head from 'next/head';
 
-
 type ButtonName = "descricao" | "avaliacoes";
 
 interface Product {
@@ -25,6 +24,8 @@ interface Product {
   min: number;
   visualization: number;
 }
+
+
 const ProductDetails = () => {
 
   const [displayedProduct, setDisplayedProduct] = useState<{

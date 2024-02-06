@@ -26,13 +26,19 @@ export const metadata: Metadata = {
     siteName: 'Sabor de Mainha',
     images: [
       {
-        url: 'https://raw.githubusercontent.com/MiracleForge/SonnenSoftware_Images/main/images/Logo.png',
-        width: 3604,
-        height: 1108,
-        alt: 'Imagem representativa da Sabor de Mainha'
-      }
+        url: 'https://raw.githubusercontent.com/MiracleForge/SonnenSoftware_Images/main/images/Logo.png', 
+        width: 800,
+        height: 600,
+      },
+      {
+        url: 'https://raw.githubusercontent.com/MiracleForge/SonnenSoftware_Images/main/images/Logo.png', 
+        width: 1800,
+        height: 1600,
+        alt: 'Imagem representativa da Sabor de Mainha',
+      },
     ],
-
+    locale: 'pt_br',
+    type: 'website',
   }
 };
 

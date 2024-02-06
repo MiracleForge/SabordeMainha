@@ -5,6 +5,7 @@ import Ribbon from '@/app/components/ribbon/Ribbon';
 
 export const metadata: Metadata = {
   title: 'Sabor de Mainha | Nosso Catálogo',
+  
 };
 
 import React from 'react'

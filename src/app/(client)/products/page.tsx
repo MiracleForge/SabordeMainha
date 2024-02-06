@@ -14,4 +14,3 @@ const ProductsDetailsPage = () => {
 
 export default ProductsDetailsPage;
 
-
