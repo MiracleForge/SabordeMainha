@@ -111,10 +111,11 @@ const ProductDetails = () => {
           case 'twitterNameTag':
             tagElement.setAttribute('content', ` ${product.name} | Sabor de Mainha`);
             break;
-          case 'twitterImageTag':
-          case 'imageTag':
-          tagElement.setAttribute('content', product.image);
-            break;
+            case 'twitterImageTag':
+              case 'imageTag':
+                const imageUrl = new URL(product.image, 'https://confeitariatemplate.vercel.app/');
+                tagElement.setAttribute('content', imageUrl.href);
+                break;
           case 'twitterDescriptionTag':
             tagElement.setAttribute('content', product.description);
             break;
