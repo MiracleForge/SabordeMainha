@@ -125,7 +125,7 @@ const ProductDetails = () => {
           tagElement.setAttribute('content', ` ${product.description}`);
             break;
           case 'siteNameTag':
-          tagElement.setAttribute('content', `Sabor de Mainha - ${product.name}`);
+          tagElement.setAttribute('content', `Sabor de Mainha `);
           break;
           case 'urlTag':
           tagElement.setAttribute('content', currentUrl);

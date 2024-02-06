@@ -3,7 +3,7 @@ import Banner from '@/app/components/banner/Banner';
 import HomePage from './components/homepage/HomePage';
 
 export const metadata: Metadata = {
-  title: 'Sabor de Mainha | Home',
+  title: 'Sabor de Mainha | Encomende doces e Salgados',
 };
 
 
