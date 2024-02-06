@@ -12,6 +12,19 @@ import Head from 'next/head';
 
 type ButtonName = "descricao" | "avaliacoes";
 
+interface Product {
+  id: number;
+  name: string;
+  description: string;
+  image: string;
+  image_alt: string;
+  type: string;
+  cost: number;
+  filing?: string[];
+  extras?: string[];
+  min: number;
+  visualization: number;
+}
 const ProductDetails = () => {
 
   const [displayedProduct, setDisplayedProduct] = useState<{
@@ -52,6 +65,77 @@ const ProductDetails = () => {
 
   };
 
+  const setMetadataTags = (product: Product) => {
+
+    const additionalString = " | Sabor de Mainha";
+    const titleTag = document.querySelector('head title');
+
+    if (titleTag) {
+      titleTag.textContent = `${product.name} - ${additionalString}`;
+    }
+    const tags = {
+      titleTag: 'title',
+      descriptionTag: 'description',
+      keywordsTag: 'keywords',
+      openNameTag: 'og:title',
+      twitterNameTag: 'twitter:title',
+      twitterImageTag: 'twitter:image',
+      twitterDescriptionTag: 'twitter:description',
+      twitterAltTag: 'twitter:image:alt',
+      openGraphTag: 'og:description',
+      siteNameTag: 'og:site_name',
+      imageTag: 'og:image',
+      altTag: 'og:image:alt',
+      urlTag: 'og:url',
+    };
+
+    const currentUrl = window.location.href;
+
+    for (const [tag, property] of Object.entries(tags)) {
+      const tagElement = document.querySelector(`meta[property="${property}"], meta[name="${property}"]`);
+      if (tagElement) {
+        switch (tag) {
+          case 'titleTag':
+            document.title = ` ${product.name} | Sabor de Mainha`;
+            
+            break;
+          case 'descriptionTag':
+            tagElement.setAttribute('content', product.description);
+            break;
+            case 'keywordsTag':
+              const keywordsContent = ['Produtos', product.type, product.name].join(', ');
+              tagElement.setAttribute('content', keywordsContent);
+              break;
+          case 'openNameTag':
+          case 'twitterNameTag':
+            tagElement.setAttribute('content', ` ${product.name} | Sabor de Mainha`);
+            break;
+          case 'twitterImageTag':
+          case 'imageTag':
+          tagElement.setAttribute('content', product.image);
+            break;
+          case 'twitterDescriptionTag':
+            tagElement.setAttribute('content', product.description);
+            break;
+          case 'twitterAltTag':
+          case 'altTag':
+          tagElement.setAttribute('content', product.image_alt);
+            break;
+          case 'openGraphTag':
+          tagElement.setAttribute('content', ` ${product.description}`);
+            break;
+          case 'siteNameTag':
+          tagElement.setAttribute('content', `Sabor de Mainha - ${product.name}`);
+          break;
+          case 'urlTag':
+          tagElement.setAttribute('content', currentUrl);
+            break;
+        default:
+            break;
+      }
+      }
+    }
+  };
 
   useEffect(() => {
     // Extrair o id dos parâmetros de consulta e converter para número
@@ -64,72 +148,14 @@ const ProductDetails = () => {
       const product = dataProducts.find(product => product.id === productId);
       setDisplayedProduct(product || null);
   
-      if (product) {
-        {/*OPENGRAPH TAGS*/}
-        const openNameTag = document.querySelector('meta[property="og:title"]')
-        const twitterNameTag = document.querySelector('meta[name="twitter:title"]');
-        const twitterImageTag = document.querySelector('meta[name="twitter:image"]');
-        const twitterDescriptionTag = document.querySelector('meta[name="twitter:description"]');
-        const twitterAltTag = document.querySelector('meta[name="twitter:image:alt"]');
-        const openGraphTag = document.querySelector('meta[property="og:description"]');
-        const siteNameTag = document.querySelector('meta[property="og:site_name"]');
-        const imageTag = document.querySelector('meta[property="og:image"]');
-        const altTag = document.querySelector('meta[property="og:image:alt"]');
-        const urlTag = document.querySelector('meta[property="og:url"]');
-
-        const currentUrl = window.location.href; 
-        {/*Normal Tags*/}
-        const additionalString = "| Sabor de Mainha"; // Adicione a sua string adicional
-        document.title = `${product.type} ${product.name} - ${additionalString}`;
-        const productDescription = product.description || '';
-        const metaDescriptionTag = document.querySelector('meta[name="description"]');
-
-        const keywordsTag = ['Produtos', product.type, product.name];
-        const metaKeywords = document.querySelector('meta[name="keywords"]')
-        
-        if (metaDescriptionTag) {
-          metaDescriptionTag.setAttribute('content', `Sabor de Mainha - ${productDescription}`);
-        }
-        if (metaKeywords) {
-          metaKeywords.setAttribute('content', keywordsTag.join(', '));
-        }
-
-        if (siteNameTag) {
-          siteNameTag.setAttribute('content', `Sabor de Mainha - ${product.name}`);
-        }
-        
-        if (openNameTag) {
-            openNameTag.setAttribute('content', `${product.type} ${product.name} | Sabor de Mainha`)
-        }
-        if (twitterNameTag) {
-            twitterNameTag.setAttribute('content', `${product.type} ${product.name} | Sabor de Mainha`)
-        }
-        if (twitterDescriptionTag) {
-            twitterDescriptionTag.setAttribute('content', `${product.description}`)
-        }
-        if (twitterImageTag) {
-            twitterImageTag.setAttribute('content', `${product.image}`)
-        }
-        if (twitterAltTag) {
-            twitterAltTag.setAttribute('content', `${product.image_alt}`)
-        }
-        if (openGraphTag) {
-          openGraphTag.setAttribute('content', ` ${product.description}`);
-        }
-  
-        if (urlTag) {
-          urlTag.setAttribute('content', currentUrl);
-        }
-  
-        if (imageTag) {
-          imageTag.setAttribute('content', product.image);
-        }
-        if (altTag) {
-          altTag.setAttribute('content', product.image_alt);
-        }
-      }
     }
   }, []);
+
+  useEffect(() => {
+    if (displayedProduct) {
+      setMetadataTags(displayedProduct);
+    }
+  }, [displayedProduct]);
   
   const handleFlavorToggle = (flavor: string) => {
     const isSelected = selectedFlavors.includes(flavor);
@@ -143,14 +169,12 @@ const ProductDetails = () => {
   const handleButtonClick = (buttonName: ButtonName) => {
     setActiveButton(buttonName);
   };
-  
+
 
   return (
     <>
       <Head>
-        {/* Set metadata for the product */}
-        <title>{displayedProduct?.name || 'Product Details'} - Sabor de Mainha</title>
-        {/* Add other metadata tags as needed (e.g., description, keywords, etc.) */}
+        <title>{displayedProduct?.name || 'Product Details'} | Sabor de Mainha</title>
       </Head>
     <main >
       {displayedProduct ? (
@@ -165,7 +189,7 @@ const ProductDetails = () => {
               className='w-full  h-[32rem] object-cover rounded-lg border-4 border-secondary'
             />
             <div className="flex flex-row justify-start items-center mt-5 border-2 border-white rounded-lg w-[28.09rem]">
-              <h1 className="flex text-3xl font-lily-script text-black  px-4">Sabores</h1>
+              <h6 className="flex text-3xl font-lily-script text-black  px-4">Sabores</h6>
               <div className="relative inline-block">
                 <button
                   onClick={() => setIsOpen(!isOpen)}
@@ -211,7 +235,7 @@ const ProductDetails = () => {
             </div>
 
             <div className="text-footer ">
-              <h2 className="text-3xl pt-6 font-lily-script">{displayedProduct.name}</h2>
+              <h1 className="text-3xl pt-6 font-lily-script">{displayedProduct.name}</h1>
               <hr className="h-[3px] w-[5rem] my-3 border-0 bg-secondary" />
               <p className="text-2xl pt-2 font-lily-script">R$ {(displayedProduct.cost * Math.max(quantity, 1) * displayedProduct.min).toFixed(2)}
 
