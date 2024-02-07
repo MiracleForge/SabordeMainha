@@ -43,7 +43,7 @@ const ProductDetails = () => {
   } | null>(null);
 
   const [quantity, setQuantity] = useState(1);
-  const [selectedFlavors, setSelectedFlavors] = useState<string[]>([]);
+  const [selectedFlavor, setSelectedFlavor] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [activeButton, setActiveButton] = useState("descricao"); 
 
@@ -70,7 +70,7 @@ const ProductDetails = () => {
 
     const additionalString = " | Sabor de Mainha";
     const titleTag = document.querySelector('head title');
-
+    
     if (titleTag) {
       titleTag.textContent = `${product.name} - ${additionalString}`;
     }
@@ -98,24 +98,24 @@ const ProductDetails = () => {
         switch (tag) {
           case 'titleTag':
             document.title = ` ${product.name} | Sabor de Mainha`;
-            
             break;
           case 'descriptionTag':
             tagElement.setAttribute('content', product.description);
             break;
-            case 'keywordsTag':
-              const keywordsContent = ['Produtos', product.type, product.name].join(', ');
-              tagElement.setAttribute('content', keywordsContent);
-              break;
+          case 'keywordsTag':
+            const keywordsContent = ['Produtos', product.type, product.name].join(', ');
+            tagElement.setAttribute('content', keywordsContent);
+            break;
           case 'openNameTag':
           case 'twitterNameTag':
             tagElement.setAttribute('content', ` ${product.name} | Sabor de Mainha`);
             break;
             case 'twitterImageTag':
-              case 'imageTag':
-                const imageUrl = new URL(product.image, 'https://confeitariatemplate.vercel.app/');
-                tagElement.setAttribute('content', imageUrl.href);
-                break;
+            case 'imageTag':
+              const imageUrl = new URL(`/assets/images/products/${product.image}`, 'https://confeitariatemplate.vercel.app/');
+              tagElement.setAttribute('content', imageUrl.href);
+              
+            break;
           case 'twitterDescriptionTag':
             tagElement.setAttribute('content', product.description);
             break;
@@ -150,6 +150,10 @@ const ProductDetails = () => {
       const product = dataProducts.find(product => product.id === productId);
       setDisplayedProduct(product || null);
   
+      // Verificar se o produto tem sabores e definir automaticamente o primeiro sabor
+      if (product && product.filing && product.filing.length > 0) {
+        setSelectedFlavor(product.filing[0]);
+      }
     }
   }, []);
 
@@ -160,11 +164,11 @@ const ProductDetails = () => {
   }, [displayedProduct]);
   
   const handleFlavorToggle = (flavor: string) => {
-    const isSelected = selectedFlavors.includes(flavor);
+    const isSelected = selectedFlavor === flavor;
     if (isSelected) {
-      setSelectedFlavors(selectedFlavors.filter(f => f !== flavor));
+      setSelectedFlavor(null); // Adicionado para limpar o sabor selecionado ao desmarcar
     } else {
-      setSelectedFlavors([...selectedFlavors, flavor]);
+      setSelectedFlavor(flavor);
     }
   };
   
@@ -182,42 +186,46 @@ const ProductDetails = () => {
       {displayedProduct ? (
         <>
         <section className="flex flex-row ">
-          <figure className="w-1/2 flex flex-col h-auto p-12 pb-0">
-            <Image
-              src={displayedProduct.image}
-              alt={displayedProduct.image_alt}
-              width={500}
-              height={500}
-              className='w-full  h-[32rem] object-cover rounded-lg border-4 border-secondary'
-            />
-            <div className="flex flex-row justify-start items-center mt-5 border-2 border-white rounded-lg w-[28.09rem]">
-              <h6 className="flex text-3xl font-lily-script text-black  px-4">Sabores</h6>
-              <div className="relative inline-block">
-                <button
-                  onClick={() => setIsOpen(!isOpen)}
-                  className="flex text-3xl font-montserrat text-white py-2 px-3 mx-auto bg-fontColor2 rounded-lg hover:bg-secondary cursor-pointer border-r-2 border-white "
-                >
-                  Escolha suas opções
-                </button>
-                {isOpen && (
-                  <div
-                    className="absolute right-0 z-20 w-80 py-2 px-3 mt-2 origin-top-right bg-primary rounded-md shadow-xl "
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {displayedProduct.filing && displayedProduct.filing.length > 0 ? (
-                      displayedProduct.filing.map((flavor, index) => (
-                        <div key={index} className="flex items-center mt-2 hover:bg-secondary">
-                          <div className="w-full text-2xl text-center">{flavor}</div>
-                        </div>
-                      ))
-                    ) : (
-                      <p>Sem sabores Extras</p>
-                    )}
-                  </div>
+        <figure className="w-1/2 flex flex-col h-auto p-12 pb-0">
+        <Image
+          src={displayedProduct.image}
+          alt={displayedProduct.image_alt}
+          width={500}
+          height={500}
+          className='w-full h-[32rem] object-cover rounded-lg border-4 border-secondary'
+        />
+        <div className="flex mt-5  rounded-lg">
+          <h6 className="flex text-3xl font-lily-script text-black px-4">Escolha suas Opções de Sabores</h6>
+          <div className="relative inline-block">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex text-3xl font-montserrat text-white py-2 px-3 mx-auto bg-fontColor2 rounded-lg hover:bg-secondary cursor-pointer border-r-2 border-white "
+            >
+              {selectedFlavor ? selectedFlavor : "Escolha suas opções"}
+            </button>
+            {isOpen && (
+              <div
+                className="absolute right-0 z-20 w-auto py-2 px-3 mt-2 origin-top-right bg-primary rounded-md shadow-xl "
+                onClick={() => setIsOpen(false)}
+              >
+                {displayedProduct.filing && displayedProduct.filing.length > 0 ? (
+                  displayedProduct.filing.map((flavor, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center mt-2 hover:bg-secondary"
+                      onClick={() => handleFlavorToggle(flavor)}
+                    >
+                      <div className="text-2xl text-center">{flavor}</div>
+                    </div>
+                  ))
+                ) : (
+                  <p>Sem sabores Extras</p>
                 )}
               </div>
-            </div>
-          </figure>
+            )}
+          </div>
+        </div>
+      </figure>
           <div className="font-montserrat text-lg">
             <div className="flex gap-1 pt-12">
               <Link className="hover:underline" href={"/"}>Início</Link>
@@ -237,7 +245,7 @@ const ProductDetails = () => {
             </div>
 
             <div className="text-footer ">
-              <h1 className="text-3xl pt-6 font-lily-script">{displayedProduct.name}</h1>
+              <h1 className="text-3xl pt-6 font-lily-script">  {displayedProduct.name}{selectedFlavor && ` - ${selectedFlavor}`} </h1>
               <hr className="h-[3px] w-[5rem] my-3 border-0 bg-secondary" />
               <p className="text-2xl pt-2 font-lily-script">R$ {(displayedProduct.cost * Math.max(quantity, 1) * displayedProduct.min).toFixed(2)}
 
