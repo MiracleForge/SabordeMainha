@@ -201,7 +201,7 @@ const ProductDetails = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="flex text-3xl font-montserrat text-white py-2 px-3 mx-auto bg-fontColor2 rounded-lg hover:bg-secondary cursor-pointer border-r-2 border-white "
             >
-              {selectedFlavor ? selectedFlavor : "Escolha suas opções"}
+              {selectedFlavor }
             </button>
             {isOpen && (
               <div
